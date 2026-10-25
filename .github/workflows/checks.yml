@@ -1,0 +1,28 @@
+name: Checks
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php: ['8.2', '8.3']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          coverage: none
+      - name: PHP syntax
+        run: find . -name '*.php' -not -path './node_modules/*' -print0 | xargs -0 -n1 php -l
+      - run: php tests/renderer-test.php
+      - run: php tests/palette-test.php
+      - run: php tests/save-test.php
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: git diff --exit-code -- assets/css/

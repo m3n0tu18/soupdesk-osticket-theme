@@ -1,0 +1,12 @@
+{
+  "name": "soupdesk-osticket-theme",
+  "version": "1.1.0-beta.9",
+  "private": true,
+  "description": "Responsive osTicket 1.18.x presentation plugin",
+  "scripts": {
+    "build": "sass --no-source-map --style=expanded scss/customer.scss assets/css/customer.css && sass --no-source-map --style=expanded scss/staff.scss assets/css/staff.css",
+    "watch": "sass --watch --no-source-map scss/customer.scss:assets/css/customer.css scss/staff.scss:assets/css/staff.css",
+    "test:php": "php tests/renderer-test.php"
+  },
+  "devDependencies": {"sass": "1.106.1"}
+}

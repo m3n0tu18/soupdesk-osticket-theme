@@ -1,0 +1,227 @@
+@use "variables" as *;
+
+@mixin theme {
+    // Keep all navigation below application dialogs and their backdrop.
+    #nav { z-index: 30; }
+    #nav > li { min-width: 0; }
+    #nav > li > a { justify-content: center; padding-inline: 18px; }
+    #nav > li > ul { visibility: visible; opacity: 1; transition: none; }
+    #overlay { z-index: 2900; }
+    .dialog, #popup, #alert { z-index: 3000; }
+    #loading, #upgrading { z-index: 3100; }
+    .dialog {
+        max-height: calc(100dvh - 64px);
+        padding: 24px;
+        overflow-y: auto;
+    }
+    .dialog :is(h2, h3) { color: $black; }
+
+    // Core dropdown carets used floated boxes with a 7px top offset.
+    .action-button {
+        align-items: center;
+        gap: 8px;
+        > i, > span, > a { float: none; align-self: center; }
+        > i.icon-caret-down {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            order: 10;
+            flex: 0 0 16px;
+            width: 16px;
+            min-height: 16px;
+            height: 16px;
+            line-height: 1;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            &::before { line-height: 1; }
+        }
+    }
+
+    // Redactor's current osTicket markup uses hyphens and .redactor-in.
+    // Expand the editing surface without touching text, selection or draft data.
+    .redactor-box:not(.redactor-box-fullscreen) {
+        width: 100% !important;
+        max-width: 100%;
+        min-width: 0;
+        border: 1px solid $mediumGrey;
+        border-radius: 8px;
+        margin: 10px 0;
+        background: $white;
+    }
+    .redactor-in:not(.redactor-source) {
+        width: 100% !important;
+        max-width: none !important;
+        min-height: 220px;
+        margin: 0 !important;
+        padding: 16px !important;
+        text-align: start;
+        font-family: $font;
+        line-height: 1.6;
+        border-right: 0;
+        > p:first-child { margin-top: 0; }
+    }
+    .redactor-placeholder::before {
+        inset-inline-start: 16px;
+        inset-inline-end: 16px;
+        top: 16px;
+        white-space: normal;
+        pointer-events: none;
+    }
+    .redactor-box .redactor-toolbar {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        width: 100%;
+        padding: 5px !important;
+        border-bottom: 1px solid $mediumGrey;
+        background: $footerGrey;
+        > li { margin: 0; }
+    }
+    .selected-signature { padding: 12px 16px; border-top: 1px solid $mediumGrey; }
+    .selected-signature .inner { max-width: none; margin: 0; }
+    // Keep the core column-sizing row on desktop; it sets the label column width.
+    .sd-sizing-row {
+        display: table-row !important;
+        height: 0 !important;
+        > td { height: 0 !important; padding: 0 !important; border: 0; }
+    }
+    #nav > .sd-drawer-heading, .sd-menu-backdrop { display: none; }
+
+    @media (max-width: 760px) {
+        body.sd-nav-open { overflow: hidden; }
+        body.sd-nav-ready #nav {
+            display: block !important;
+            position: fixed;
+            inset-block: 0;
+            inset-inline: auto 0;
+            width: min(340px, calc(100vw - 40px));
+            max-width: none;
+            height: 100dvh;
+            min-height: 0;
+            margin: 0;
+            padding: 16px;
+            overflow-y: auto;
+            overscroll-behavior: contain;
+            border: 0;
+            border-radius: 0;
+            background: var(--sd-navigation, #2D2E2D);
+            z-index: 1200;
+            visibility: hidden;
+            transform: translateX(105%);
+            pointer-events: none;
+        }
+        body.sd-nav-open #nav {
+            visibility: visible;
+            transform: none;
+            pointer-events: auto;
+        }
+        body.sd-nav-ready #nav > li {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: stretch;
+            width: 100%;
+            min-width: 0;
+            margin: 0 0 7px;
+            padding: 0;
+            border: 0;
+            border-radius: 6px;
+            background: transparent;
+            > a {
+                display: flex;
+                flex: 1 1 0;
+                justify-content: flex-start;
+                min-height: 46px;
+                margin: 0;
+                padding: 12px;
+                background-image: none;
+                color: var(--sd-navigation-text, #FAF9F6);
+                text-align: start;
+                line-height: 1.5;
+            }
+            &.active > a, > a.active, > a.new { background: $yellow; color: var(--sd-primary-text, #2D2E2D); }
+            > ul {
+                position: static;
+                width: 100%;
+                flex-basis: 100%;
+                min-width: 0;
+                max-width: none;
+                margin: 6px 0 0;
+                padding: 6px;
+                visibility: visible;
+                opacity: 1;
+            }
+            > .sd-subnav-toggle {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                flex: 0 0 42px;
+                width: 42px;
+                margin: 0;
+                padding: 0;
+                color: var(--sd-navigation-text, #FAF9F6);
+                background: transparent;
+                border: 1px solid #5d5d5d;
+                border-radius: 6px;
+            }
+        }
+        body.sd-nav-ready #nav > .sd-drawer-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            color: var(--sd-navigation-text, #FAF9F6);
+            font-size: 16px;
+            font-weight: 600;
+            .sd-drawer-close {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 42px;
+                height: 42px;
+                padding: 0;
+                border: 1px solid #5d5d5d;
+                border-radius: 6px;
+                background: transparent;
+                color: var(--sd-navigation-text, #FAF9F6);
+                cursor: pointer;
+            }
+        }
+        body.sd-nav-open > .sd-menu-backdrop {
+            display: block;
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100dvh;
+            padding: 0;
+            margin: 0;
+            border: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1190;
+        }
+        table.sd-form-table {
+            table-layout: auto;
+            > tbody, > tbody > tr, > thead, > thead > tr,
+            > tbody > tr > :is(th, td), > thead > tr > :is(th, td) {
+                height: auto !important;
+                min-height: 0;
+            }
+            > thead, > thead > tr { display: block; width: 100%; }
+            > thead > tr > :is(th, td) {
+                display: block;
+                width: 100% !important;
+                min-width: 0 !important;
+                padding: 10px 0;
+            }
+        }
+        table.sd-form-table .sd-sizing-row { display: none !important; }
+        table.sd-form-table {
+            > tbody.hidden, > thead.hidden,
+            > tbody > tr.hidden, > thead > tr.hidden,
+            > tbody > tr > :is(th, td).hidden { display: none !important; }
+        }
+        .dialog table.sd-form-table :is(input:not([type="checkbox"]):not([type="radio"]), select, textarea) { max-width: 100%; }
+        .dialog .row, .dialog .row > [class^="span"] { display: block; width: 100%; margin: 0; }
+        .redactor-in:not(.redactor-source) { min-height: 180px; font-size: 16px; }
+    }
+}

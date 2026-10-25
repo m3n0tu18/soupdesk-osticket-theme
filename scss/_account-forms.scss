@@ -1,0 +1,83 @@
+@use "variables" as *;
+
+@mixin theme {
+    @media (max-width: 1024px) {
+        // Both core profile controllers use this action. Scope to their layout tables,
+        // leaving signature content tables and unrelated admin/report tables alone.
+        form:is([action="profile.php"], [action$="/profile.php"]) {
+            min-width: 0;
+            max-width: 100%;
+            overflow-wrap: anywhere;
+
+            > .tab_content, > #signature {
+                min-width: 0;
+                max-width: 100%;
+            }
+
+            table:is(.two-column, .padded, .form_table, .sd-form-table):not(:is(.redactor-in, .redactor_editor, .redactor-editor, .thread-body) table) {
+                display: block;
+                width: 100% !important;
+                min-width: 0 !important;
+                max-width: 100% !important;
+                table-layout: auto;
+                border-collapse: collapse;
+
+                > thead, > tbody, > tfoot,
+                > thead > tr, > tbody > tr, > tfoot > tr {
+                    display: block;
+                    width: 100%;
+                    min-width: 0;
+                    height: auto !important;
+                }
+                > :is(thead, tbody, tfoot) > tr > :is(td, th) {
+                    display: block;
+                    width: 100% !important;
+                    min-width: 0 !important;
+                    max-width: 100%;
+                    height: auto !important;
+                    padding: 8px 0;
+                    white-space: normal;
+                    text-align: start;
+                    background: transparent;
+                    &:first-child:not([colspan]) { padding-bottom: 4px; }
+                }
+                > :is(thead, tbody, tfoot) > tr > th[colspan] {
+                    margin-top: 12px;
+                    padding: 12px 10px;
+                    border-bottom: 1px solid $mediumGrey;
+                    background: $footerGrey;
+                }
+                .hidden, [hidden] { display: none !important; }
+            }
+
+            // Override explicit inline widths and browser size/min-content sizing.
+            input:is([type="text"], [type="email"], [type="tel"], [type="password"], [type="url"], [type="number"]),
+            select, textarea {
+                width: 100% !important;
+                min-width: 0 !important;
+                max-width: 100% !important;
+            }
+            input[name="phone_ext"] { width: min(100%, 8rem) !important; }
+            input[name="lastname"] { margin-top: 8px; }
+            .select2-container {
+                width: 100% !important;
+                min-width: 0 !important;
+                max-width: 100% !important;
+            }
+            .avatar.pull-left {
+                float: none !important;
+                height: auto !important;
+                max-width: 100%;
+                margin: 0 0 16px !important;
+                > img { display: block; max-width: 100%; }
+            }
+            > p:last-of-type {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 8px;
+                > :is(button, input) { margin: 0; }
+            }
+        }
+    }
+}

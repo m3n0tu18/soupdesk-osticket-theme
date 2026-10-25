@@ -1,0 +1,37 @@
+// Runtime instance colours with Soup Digital defaults; no rebuild needed for settings.
+$black: var(--sd-text, #2D2E2D);
+$white: var(--sd-surface, #FAF9F6);
+$grey: var(--sd-muted, #808080);
+$lightGrey: var(--sd-background, #F2F2F2);
+$mediumGrey: var(--sd-border, #e5e5e5);
+$darkGrey: var(--sd-secondary, #707070);
+$footerGrey: var(--sd-subtle, #F9F9F9);
+$yellow: var(--sd-primary, #FFC107);
+$lightYellow: var(--sd-primary-hover, #FFE69B);
+
+// Semantic colours are reserved for errors and successful actions.
+$danger: #9e2a2b;
+$success: #28633c;
+$radius: 12px;
+$font: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+
+@mixin card {
+    background: $white;
+    border: 1px solid $mediumGrey;
+    border-radius: $radius;
+    box-shadow: none;
+}
+
+@mixin primary {
+    background: $yellow;
+    border-color: $yellow;
+    color: var(--sd-primary-text, #2D2E2D);
+    text-shadow: none;
+    box-shadow: none;
+
+    &:hover {
+        background: $lightYellow;
+        border-color: $yellow;
+        color: var(--sd-primary-text, #2D2E2D);
+    }
+}

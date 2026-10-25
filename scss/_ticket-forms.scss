@@ -1,0 +1,84 @@
+@use "variables" as *;
+
+@mixin theme {
+    // Direct-child rules prevent form layout styling spilling into rich-text tables.
+    form table.sd-form-table {
+        width: 100%;
+        border-collapse: collapse;
+        > tbody > tr > td, > tbody > tr > th {
+            padding: 12px;
+            vertical-align: top;
+            border: 0;
+        }
+        > tbody > tr > :is(td, th)[colspan] { width: auto !important; }
+        > tbody > tr > th[colspan] {
+            padding: 18px 12px 12px;
+            border-bottom: 1px solid $mediumGrey;
+            background: $footerGrey;
+            text-align: start;
+            font-size: 15px;
+            em { font-style: normal; }
+        }
+        textarea { width: 100% !important; }
+    }
+
+    // Staff ticket creation keeps core fields and their dynamic form sections intact.
+    form.save:has(input[name="do"][value="create"]) {
+        > .form_table {
+            table-layout: fixed;
+            border: 1px solid $mediumGrey;
+            border-radius: 8px;
+            > tbody > tr > td:first-child:not([colspan]) { width: 180px; }
+            > tbody > tr > td + td { width: auto; }
+            > tbody > tr > td > :is(input[type="text"], input[type="email"], select, textarea) {
+                width: min(100%, 640px);
+                max-width: 100%;
+            }
+            > tbody > tr > td[colspan] > :is(input[type="text"], textarea) { width: 100%; }
+        }
+    }
+
+    #response_options {
+        margin-top: 28px;
+        padding: 0;
+        border: 1px solid $mediumGrey;
+        border-radius: 8px;
+        background: $white;
+        #response-tabs {
+            margin: 0;
+            padding: 0 16px;
+            background: $footerGrey;
+        }
+        > form {
+            margin: 0;
+            padding: 16px;
+            border: 0;
+            background: transparent;
+            > table { table-layout: auto; }
+            > table > tbody > tr > td:first-child:not([colspan]) { width: 130px; }
+            > table > tbody > tr > td[colspan] { width: auto; }
+            > table > tbody > tr > td > select { width: min(100%, 520px); }
+        }
+        #resp_sec > tr:first-child:has(> td[colspan]:only-child):not(:has(input, select, textarea, .redactor-box)) { display: none; }
+        #ccs > div:first-child { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+        #ccs .action-button { margin: 0 !important; float: none; }
+    }
+    .select2-container .select2-selection { max-width: 100%; }
+    .select2-container--default .select2-selection--single .select2-selection__arrow {
+        top: 0; right: 6px; height: 100%; display: flex; align-items: center;
+    }
+
+    @media (max-width: 760px) {
+        #response_options > form { padding: 12px; }
+        form.save:has(input[name="do"][value="create"]) > .form_table { display: block; }
+        form table.sd-form-table > tbody > tr > :is(td, th) {
+            padding: 8px 0;
+            width: 100% !important;
+            min-width: 0 !important;
+        }
+        form table.sd-form-table > tbody > tr > th[colspan] { padding: 16px 10px; }
+        form.save:has(input[name="do"][value="create"]) > .form_table > tbody > tr > td { padding: 8px 12px; }
+        #response_options > form > table > tbody > tr > td:first-child:not([colspan]) { width: 100%; }
+        .dialog table.sd-form-table > tbody > tr > :is(td, th) { padding: 8px 0; }
+    }
+}

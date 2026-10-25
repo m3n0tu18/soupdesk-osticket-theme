@@ -1,0 +1,223 @@
+/*! Copyright (C) 2026 Soup Digital and contributors. SPDX-License-Identifier: GPL-2.0-or-later */
+@use "refinements";
+@use "record-lists";
+@use "account-forms";
+@use "mobile-tables";
+@use "variables" as *;
+@use "shared";
+
+html.sd-theme.sd-customer {
+    @include shared.theme;
+
+    #container { max-width: 1180px; }
+
+    #nav {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px;
+        height: auto;
+        min-height: 64px;
+        margin: 0;
+        padding: 12px 24px;
+        border: 0;
+        border-top: 1px solid $mediumGrey;
+        border-radius: 0 0 $radius $radius;
+        background: $white;
+        box-shadow: none;
+        white-space: normal;
+
+        li {
+            display: block;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            a {
+                display: inline-flex;
+                align-items: center;
+                min-height: 40px;
+                height: auto;
+                margin: 0;
+                padding: 9px 15px;
+                border: 0;
+                border-radius: 7px;
+                background-image: none;
+                color: $darkGrey;
+                font-size: 13px;
+                font-weight: 600;
+                line-height: 1.5;
+                text-decoration: none;
+
+                &:hover { background-color: $lightGrey; color: $black; }
+                &.active { background-color: $lightYellow; color: $black; }
+                &.new { @include primary; }
+            }
+        }
+    }
+
+    #landing_page {
+        display: flow-root;
+        h1 { max-width: 700px; margin-bottom: 20px; }
+        .main-content { width: auto; max-width: 700px; float: none; }
+        .sidebar { width: auto; float: none; }
+        p { max-width: 72ch; color: $darkGrey; }
+
+        #new_ticket, #check_status {
+            @include card;
+            position: relative;
+            width: calc(50% - 12px);
+            float: left;
+            margin: 28px 0 0;
+            padding: 26px;
+            background-image: none;
+            border-top: 4px solid $yellow;
+            min-height: 210px;
+            h3 { margin: 0 0 12px; font-size: 1.3rem; }
+            p { min-height: 48px; }
+            .button { margin-top: 12px; }
+        }
+
+        #check_status { margin-inline-start: 24px; border-top-color: $black; }
+    }
+
+    // Rendered landing templates use a .sidebar beside .main-content.
+    #landing_page:has(> .sidebar) {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(270px, 0.55fr);
+        gap: 40px;
+        > .main-content { min-width: 0; grid-column: 1; grid-row: 1; }
+        > .sidebar {
+            margin: 0;
+            grid-column: 2;
+            grid-row: 1;
+            #new_ticket, #check_status { width: 100%; float: none; margin: 0 0 20px; }
+        }
+        > :not(.sidebar):not(.main-content) { grid-column: 1 / -1; }
+        > .clear { display: none; }
+        .front-page-button { padding: 22px; background: $footerGrey; border: 1px solid $mediumGrey; border-radius: 10px; }
+        .front-page-button p { margin-bottom: 12px; }
+        .front-page-button p:last-child { margin-bottom: 0; }
+        .front-page-button .button { width: 100%; max-width: none; }
+        .sidebar .content section { margin-top: 24px; }
+        .sidebar .content .header { margin-bottom: 12px; font-weight: 650; }
+        .sidebar .content section > div:not(.header) { margin-bottom: 12px; }
+        .sidebar .content { padding: 0; margin: 0; border: 0; background: transparent; }
+    }
+
+    #landing_page .search-form { margin-bottom: 28px; }
+    #landing_page .search-form form { display: flex; gap: 8px; }
+    #landing_page .search-form input { width: 100%; min-width: 0; }
+    #landing_page .search-form button { flex-shrink: 0; white-space: nowrap; }
+    #landing_page .main-content > .thread-body { border: 0; padding: 0; background: transparent; }
+    #content > .sidebar { width: 260px; max-width: 100%; }
+    #content > .main-content { width: calc(100% - 300px); max-width: 100%; }
+
+    #ticketForm, #reply, #clientLogin, #clientAccess, #clientCreate, #clientProfile {
+        max-width: 100%;
+        > table { width: 100%; max-width: 100%; }
+        td { padding: 10px 12px 10px 0; vertical-align: top; }
+        .form-header { padding: 12px 0; font-size: 1.05rem; color: $black; }
+        input[type="submit"], input[type="reset"] { margin: 4px 6px 4px 0; }
+    }
+
+    #ticketForm select#topicId { width: min(100%, 480px); }
+    #ticketForm input[type="text"], #ticketForm input[type="email"] { width: min(100%, 520px); }
+    #reply { border-top: 1px solid $mediumGrey; margin-top: 28px; padding-top: 24px; }
+    #reply textarea { width: 100%; }
+    #ticketInfo { width: 100%; table-layout: fixed; }
+    #ticketInfo > tbody > tr > td { width: 50%; vertical-align: top; }
+    .infoTable, .custom-data { width: 100%; border-collapse: collapse; }
+    .infoTable td, .custom-data td { padding: 9px 12px; border-bottom: 1px solid $mediumGrey; }
+    .infoTable .headline, .custom-data .headline { background: $footerGrey; font-weight: 650; }
+
+    .search.well, #kb-search {
+        padding: 18px;
+        border: 1px solid $mediumGrey;
+        border-radius: 9px;
+        background: $footerGrey;
+        box-shadow: none;
+        margin-bottom: 24px;
+    }
+    #ticketSearchForm { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+    #ticketSearchForm .pull-right { float: none; margin-inline-start: auto; }
+    #kb-search { float: none; width: 100%; }
+    #kb-search div { max-width: 100%; }
+    #kb-search #query, #kb-search #cid { float: none; max-width: 100%; }
+    #kb, #faq ol { padding: 0; }
+    #kb > li, #faq ol li {
+        list-style: none;
+        margin: 0 0 12px;
+        padding: 20px;
+        border: 1px solid $mediumGrey;
+        border-radius: 9px;
+        background: $white;
+    }
+    .featured-category { width: 100%; padding: 20px 0; border-bottom: 1px solid $mediumGrey; }
+    .faq-content { max-width: 78ch; line-height: 1.8; }
+    .faq-content img { max-width: 100%; height: auto; }
+    .states { display: flex; flex-wrap: wrap; gap: 8px; }
+    .states .state { padding: 5px 10px; border-radius: 6px; }
+    .states .state.active { background: $lightYellow; color: $black; }
+    #pagination { display: flex; flex-wrap: wrap; gap: 5px; margin: 24px 0; padding: 0; }
+    #pagination li { float: none; list-style: none; border-radius: 6px; }
+    #pagination li a { padding: 7px 12px; border-radius: 6px; border-color: $mediumGrey; }
+    #pagination .active { padding: 7px 12px; background: $lightYellow; color: $black; border: 1px solid $yellow; }
+
+    // Login columns are tagged without changing the login form or its controls.
+    #clientLogin > .sd-login-columns { display: grid !important; grid-template-columns: 1fr 1fr; gap: 28px; }
+    .sd-login-columns > div { display: block !important; width: auto !important; padding: 12px 0 !important; }
+    #clientLogin #username, #clientLogin #passwd { width: 100%; margin-bottom: 12px; }
+
+    @media (max-width: 760px) {
+        #nav { padding: 12px; gap: 5px; }
+        #nav li { flex: 1 1 auto; }
+        #nav li a { display: flex; justify-content: center; padding: 10px 12px; }
+        .sd-nav-ready:not(.sd-nav-open) #nav { display: none; }
+        #landing_page:has(> .sidebar) {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            > .main-content { order: 0; }
+            > .sidebar { order: 1; }
+            > :not(.main-content):not(.sidebar) { order: 2; }
+        }
+        #landing_page #new_ticket, #landing_page #check_status {
+            float: none; width: 100%; margin: 20px 0 0; min-height: 0; padding: 22px;
+        }
+        #landing_page .main-content { margin-bottom: 24px; }
+        #landing_page:has(> .sidebar) > .main-content { margin-bottom: 0; }
+        #content > .main-content, #content > .sidebar { width: 100%; float: none; }
+        #ticketInfo, #ticketInfo > tbody, #ticketInfo > tbody > tr,
+        #ticketInfo > tbody > tr > td { display: block; width: 100%; }
+        #ticketSearchForm { display: block; }
+        #ticketSearchForm .pull-right { margin: 12px 0 0; }
+        #ticketSearchForm input[type="text"], #ticketSearchForm select { width: 100%; margin-bottom: 8px; }
+        #clientLogin > .sd-login-columns { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+        #content > .pull-right.states { float: none; margin-bottom: 16px; }
+    }
+    @include refinements.theme;
+    @include record-lists.theme;
+    @include account-forms.theme;
+    @include mobile-tables.theme;
+    @media (max-width: 760px) {
+        // Explicit paired colours prevent native customer hover rules leaving pale text.
+        body.sd-nav-ready #nav > li > a:is(:hover, :focus-visible, :active) {
+            background: var(--sd-primary, #FFC107);
+            color: var(--sd-primary-text, #2D2E2D);
+        }
+    }
+    @media (max-width: 1024px) {
+        // A caption must become a normal full-width block with the mobile table.
+        .sd-records-scroll > table.sd-record-list > caption,
+        .sd-records-scroll > #ticketTable.sd-record-list > caption {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            margin: 0 0 12px;
+            padding: 10px 12px;
+            white-space: normal;
+            overflow-wrap: normal;
+            text-align: start;
+        }
+    }
+}

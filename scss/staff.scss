@@ -1,0 +1,533 @@
+/*! Copyright (C) 2026 Soup Digital and contributors. SPDX-License-Identifier: GPL-2.0-or-later */
+@use "ticket-forms";
+@use "refinements";
+@use "record-lists";
+@use "account-forms";
+@use "mobile-tables";
+@use "variables" as *;
+@use "shared";
+
+html.sd-theme.sd-staff {
+    @include shared.theme;
+
+    #container { max-width: 1680px; }
+    #pjax-container { min-width: 0; }
+
+    #nav {
+        position: relative;
+        z-index: 110;
+        display: flex;
+        align-items: stretch;
+        flex-wrap: wrap;
+        gap: 6px;
+        width: 100%;
+        height: auto;
+        min-height: 64px;
+        margin: 0;
+        padding: 10px 22px;
+        border: 0;
+        background: var(--sd-navigation, #2D2E2D);
+        box-shadow: none;
+
+        > li {
+            position: relative;
+            display: block;
+            float: none;
+            width: auto;
+            height: auto;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            border-radius: 7px;
+            background: transparent;
+            list-style: none;
+            line-height: 1.5;
+
+            > a {
+                display: flex;
+                align-items: center;
+                height: auto;
+                min-height: 42px;
+                margin: 0;
+                padding: 10px 18px;
+                border: 0;
+                border-radius: 7px;
+                background: transparent;
+                color: var(--sd-navigation-text, #FAF9F6);
+                font-size: 13px;
+                font-weight: 600;
+                line-height: 1.5;
+                text-decoration: none;
+            }
+            &.active, &.inactive:hover { background: transparent; }
+            &.active > a { background: $yellow; color: var(--sd-primary-text, #2D2E2D); }
+            &.inactive > a:hover, &:focus-within > a { background: var(--sd-navigation-hover, #454645); color: var(--sd-navigation-text, #FAF9F6); }
+
+            > ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                inset-inline-start: 0;
+                width: max-content;
+                min-width: 210px;
+                max-width: min(340px, 80vw);
+                height: auto;
+                margin: 0;
+                padding: 7px;
+                border: 1px solid $mediumGrey;
+                border-radius: 9px;
+                background: $white;
+                box-shadow: none;
+
+                li {
+                    display: block;
+                    float: none;
+                    margin: 0;
+                    padding: 0;
+                    border: 0;
+                    list-style: none;
+                    a {
+                        display: block;
+                        height: auto;
+                        padding: 10px 12px;
+                        border-radius: 5px;
+                        background-image: none;
+                        color: $black;
+                        white-space: normal;
+                        &:hover { background: $lightYellow; text-decoration: none; }
+                    }
+                }
+            }
+            &:hover > ul, &:focus-within > ul { display: block; }
+        }
+    }
+
+    #sub_nav {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 4px 18px;
+        height: auto;
+        min-height: 56px;
+        margin: 0;
+        padding: 10px 24px;
+        border: 0;
+        border-bottom: 1px solid $mediumGrey;
+        background: $white;
+        font-size: 13px;
+
+        > li {
+            display: block;
+            float: none;
+            height: auto;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            background: none;
+            list-style: none;
+            > a {
+                display: block;
+                height: auto;
+                padding: 7px 10px;
+                border: 0;
+                border-radius: 6px;
+                background-image: none;
+                color: $darkGrey;
+                font-weight: 600;
+                line-height: 1.5;
+                &.active { background: $lightYellow; color: $black; }
+                &:hover { background: $lightGrey; color: $black; text-decoration: none; }
+            }
+        }
+        > li.active > a { background: $lightYellow; color: $black; }
+    }
+
+    #content { padding: 28px; }
+    #content > form { max-width: 100%; }
+    #content .full-width { max-width: 100%; }
+    #content .sticky.bar { height: auto; min-height: 52px; background: $white; border-color: $mediumGrey; }
+    #content .sticky.bar > .content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 12px;
+        width: 100%; max-width: 100%; padding: 12px 0;
+        > .pull-right { order: 2; margin-inline-start: auto; }
+    }
+    #content .sticky.bar h2 { margin: 6px 0; }
+    #content .sticky.bar .pull-right { max-width: 100%; }
+    .sticky.bar .action-button { margin: 3px; }
+    #basic_search {
+        padding: 16px;
+        margin: 0 0 20px;
+        border-radius: 9px;
+        border: 1px solid $mediumGrey;
+        background: $footerGrey;
+        box-shadow: none;
+
+        // Queue search has a separate sort/filter group before the form in core markup.
+        &:has(> form) {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 12px;
+            > form {
+                display: flex;
+                flex: 1 1 350px;
+                flex-wrap: wrap;
+                align-items: center;
+                gap: 8px;
+                order: 0;
+                min-width: 0;
+                margin: 0;
+            }
+            > .pull-right {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                order: 1;
+                float: none;
+                height: auto !important;
+                margin: 0;
+                .valign-helper { display: none; }
+            }
+        }
+        .attached.input {
+            display: inline-flex;
+            flex: 0 1 360px;
+            align-items: stretch;
+            min-width: 0;
+            max-width: 100%;
+            height: 42px;
+            margin: 0;
+            overflow: visible;
+            border: 1px solid $mediumGrey;
+            border-radius: 7px;
+            background: $white;
+            outline: none;
+
+            &.focus, &:focus-within {
+                outline: 2px solid $black;
+                outline-offset: 2px;
+                box-shadow: none;
+            }
+            > input {
+                flex: 1 1 auto;
+                min-width: 0;
+                width: 100%;
+                height: 40px;
+                min-height: 40px;
+                margin: 0;
+                border: 0;
+                border-radius: 6px 0 0 6px;
+                outline: none;
+                box-shadow: none;
+            }
+            > .button.attached {
+                flex: 0 0 44px;
+                width: 44px;
+                min-height: 40px;
+                height: 40px;
+                margin: 0;
+                padding: 0;
+                border: 0;
+                border-radius: 0 6px 6px 0;
+            }
+        }
+    }
+    #basic_search label { display: inline-block; margin: 4px 14px 4px 0; }
+    #basic_search input { max-width: 100%; }
+    #basic_search .button { margin: 4px 0; }
+    #basic_search .ui-datepicker-trigger { background: transparent; border: 0; padding: 8px; }
+    #line-chart-here { width: 100%; max-width: 100%; overflow-x: auto; }
+    #line-chart-legend { position: static !important; display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
+    #line-chart-legend br { display: none; }
+    #line-chart-legend .label { padding: 4px 8px; border-radius: 5px; }
+    .tixTitle { margin: 22px 0; padding: 0 0 20px; border-color: $mediumGrey; }
+
+    table.ticket_info {
+        width: 100%;
+        background: $white;
+        border-collapse: collapse;
+        margin: 18px 0 28px;
+        > tbody > tr > td { width: 50%; padding: 16px; vertical-align: top; border: 1px solid $mediumGrey; }
+        table { width: 100%; border-collapse: collapse; }
+        table td, table th { padding: 8px 6px; border-bottom: 1px solid $mediumGrey; vertical-align: top; }
+        th { width: 135px; color: $darkGrey; text-align: start; font-size: 12px; font-weight: 500; }
+    }
+
+    // Core form tables keep their desktop alignment and stack only at small widths.
+    table.form_table, form > table:not(.list):not(.queue):not(.dashboard-stats) {
+        max-width: 100%;
+        width: 100%;
+        border-collapse: collapse;
+        > tbody > tr > td, > tbody > tr > th,
+        > thead > tr > td, > thead > tr > th { padding: 12px 10px; vertical-align: top; }
+        > tbody > tr > th, > thead > tr > th { text-align: start; font-weight: 600; }
+        .form-header { padding: 14px 0; color: $black; background: $footerGrey; }
+    }
+    #reply, #response, #note { max-width: 100%; }
+    #response textarea, #note textarea, #reply textarea { width: 100%; }
+    #response_options { padding: 16px; background: $footerGrey; border-radius: 8px; }
+    .attached.input { display: inline-flex; max-width: 100%; align-items: stretch; }
+    .attached.input input { min-width: 0; border-radius: 7px 0 0 7px; }
+    .attached.input .button { border-radius: 0 7px 7px 0; }
+
+    // Keep osTicket's queue overflow widget, but size its containing bar fluidly.
+    #customQ_nav {
+        width: 100%;
+        max-width: 100%;
+        min-height: 56px;
+        height: 56px !important;
+        border: 0;
+        border-bottom: 1px solid $mediumGrey;
+        background: $white;
+
+        #sub_nav.jb-overflowmenu-menu-primary {
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: center;
+            gap: 4px;
+            width: auto;
+            height: 56px !important;
+            min-height: 56px;
+            margin: 0;
+            padding: 8px 44px 8px 20px;
+            border: 0;
+            background: transparent;
+            > li.item {
+                flex: 0 0 auto;
+                height: auto;
+                margin: 0;
+                padding: 0;
+                border: 0;
+                background: transparent;
+                > a {
+                    margin: 0;
+                    padding: 8px 12px;
+                    border-radius: 6px;
+                    line-height: 1.5;
+                    background-image: none;
+                    color: $darkGrey;
+                    white-space: nowrap;
+                    > i { margin-inline-start: 6px; margin-top: 0; }
+                    &.active { background: $lightYellow; color: $black; }
+                }
+            }
+        }
+        .jb-overflowmenu-container { border: 0; background: transparent; }
+        .jb-overflowmenu-menu-secondary-handle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            margin: 10px 6px;
+            padding: 0;
+            border: 1px solid $mediumGrey;
+            border-radius: 6px;
+            background: $white;
+            color: $black;
+        }
+        .jb-overflowmenu-menu-secondary {
+            top: 100%;
+            right: 0;
+            left: auto;
+            min-width: 190px;
+            max-width: calc(100vw - 32px);
+            border-radius: 8px;
+            box-shadow: none;
+        }
+    }
+    .jb-overflowmenu { max-width: 100%; background: $footerGrey; }
+    .jb-overflowmenu-menu-primary li.item > a { color: $black; }
+    .customQ-dropdown, .action-dropdown, .noclick-dropdown {
+        border-color: $mediumGrey; border-radius: 8px; box-shadow: none;
+    }
+    .action-dropdown ul li a, .noclick-dropdown ul li a { min-height: 36px; padding: 8px 12px; }
+    .action-dropdown ul li a:hover { background: $lightYellow; color: $black; }
+
+    // Queue heading, configuration cog and action group belong to one toolbar.
+    #content .sticky.bar > .content:has(> .configureQ) {
+        justify-content: flex-start;
+        gap: 8px;
+        > .pull-left { width: auto; min-width: 0; }
+        > .configureQ { float: none; margin: 0 4px; align-self: center; color: $darkGrey; }
+        > .pull-right {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            align-items: center;
+            width: auto;
+            .action-button { margin: 0; }
+        }
+    }
+    table.queue {
+        th, td { padding: 12px; line-height: 1.5; overflow-wrap: normal; }
+        td { white-space: nowrap; }
+    }
+    .sd-table-scroll > table.queue { min-width: 980px; }
+
+    #instance-tabs_container .form-field {
+        padding: 12px 0;
+        margin: 0;
+        border-bottom: 1px solid $mediumGrey;
+        > div { vertical-align: top; }
+    }
+
+    // Staff sign-in is rendered by a separate template and is included by the injector.
+    #loginBody {
+        min-height: 100dvh;
+        height: auto;
+        padding: 64px 20px;
+        background: $lightGrey;
+        #brickwall, #blur { display: none; }
+        #loginBox {
+            @include card;
+            position: relative;
+            top: auto;
+            left: auto;
+            width: min(100%, 460px);
+            height: auto;
+            min-height: 0;
+            margin: 0 auto;
+            padding: 36px;
+            transform: none;
+            text-align: start;
+            &::before, &::after { display: none; }
+            #logo { height: auto; margin: 0 0 30px; padding: 0; background: none; text-align: start; }
+            #logo a { display: inline-block; height: auto; text-decoration: none; }
+            #logo img { max-width: 100%; max-height: 64px; }
+            #logo .valign-helper { display: none; }
+            #login-message { margin: 0 0 20px; padding: 0; color: $black; font-size: 1.25rem; text-align: start; }
+            fieldset { padding: 0; margin: 0; border: 0; }
+            form { width: 100%; margin: 0; }
+            #name, #pass { width: 100%; height: auto; margin: 0 0 14px; padding: 12px; }
+            .submit.button { width: 100%; margin: 22px 0 0; float: none; }
+            #reset-link { font-size: 12px; font-weight: 500; }
+            #company { position: static; width: auto; margin: 28px 0 0; color: $darkGrey; text-align: center; }
+            #company .content { padding: 0; background: transparent; color: $darkGrey; box-shadow: none; text-shadow: none; }
+            .banner { border: 0; padding: 0; margin: 0 0 18px; background: transparent; }
+            .or { margin-top: 22px; }
+        }
+        #poweredBy {
+            position: static; margin: 24px auto 0; padding: 0; width: auto;
+            text-align: center; color: $darkGrey; background: transparent;
+            box-shadow: none; text-shadow: none; border: 0;
+            .osticket-logo { filter: none; }
+        }
+    }
+
+    @media (max-width: 1100px) {
+        #container { width: calc(100% - 32px); }
+        #content { padding: 22px; }
+        #nav { padding-inline: 14px; }
+        #nav > li > a { padding-inline: 14px; }
+    }
+
+    @media (max-width: 760px) {
+        #container { width: calc(100% - 24px); }
+        #content { padding: 20px 16px; }
+        #nav { padding: 10px; gap: 5px; }
+        #nav > li { flex: 1 1 auto; }
+        #nav > li > a { justify-content: center; padding: 10px 12px; }
+        #nav > li:has(> .sd-subnav-toggle) { display: flex; flex-wrap: wrap; align-items: stretch; }
+        #nav > li:has(> .sd-subnav-toggle) > a { flex: 1; }
+        #nav > li > .sd-subnav-toggle {
+            display: block; width: 34px; padding: 0; border: 1px solid #5d5d5d;
+            border-radius: 6px; color: var(--sd-navigation-text, #FAF9F6); background: transparent; cursor: pointer;
+        }
+        // Explicit controls avoid touch/hover opening a menu during the pointer click.
+        .sd-nav-ready #nav > li:not(.sd-subnav-open) > ul { display: none; }
+        #nav > li.sd-subnav-open > ul { display: block; flex-basis: 100%; }
+        .sd-nav-ready:not(.sd-nav-open) #nav { display: none; }
+        #nav > li > ul {
+            position: static;
+            min-width: 0;
+            width: 100%;
+            max-width: none;
+            margin-top: 4px;
+            box-shadow: none;
+        }
+        #sub_nav { gap: 4px; padding: 10px; }
+        #sub_nav > li > a { padding: 8px 10px; }
+        #basic_search { padding: 14px; }
+        #basic_search label { display: block; margin: 0 0 12px; }
+        #basic_search .pull-right { float: none; height: auto !important; }
+        #basic_search:has(> form) {
+            padding: 14px;
+            > form { flex-basis: 100%; }
+            > form .attached.input { flex-basis: 100%; }
+            > .pull-right { margin-inline-start: auto; }
+        }
+        #customQ_nav #sub_nav.jb-overflowmenu-menu-primary { padding-inline-start: 10px; }
+        #content .sticky.bar { position: static !important; }
+        #content .sticky.bar > .content { display: flex; flex-direction: column; align-items: start; gap: 12px; }
+        // Only outer toolbar groups span the row. Core also adds .pull-right to
+        // individual buttons and carets, which must retain their natural width.
+        #content .sticky.bar > .content > .pull-right,
+        #content .sticky.bar > .content > .pull-left { float: none; width: 100%; text-align: start; }
+        #content .sticky.bar > .content > .pull-right {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 6px;
+            margin-inline-start: 0;
+            > .action-button {
+                float: none;
+                flex: 0 0 auto;
+                width: auto;
+                margin: 0;
+            }
+        }
+        #content .sticky.bar > .content:has(> .configureQ) {
+            flex-direction: row;
+            align-items: center;
+            > .pull-left { width: auto; }
+            > .pull-right { flex-basis: 100%; margin-inline-start: 0; }
+        }
+        #instance-tabs_container .form-field > div {
+            display: block !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            padding-inline-start: 0;
+            margin-bottom: 8px;
+        }
+        table.ticket_info, table.ticket_info > tbody,
+        table.ticket_info > tbody > tr, table.ticket_info > tbody > tr > td { display: block; width: 100%; }
+        table.ticket_info > tbody > tr > td { padding: 12px; }
+        table.ticket_info th { min-width: 100px; width: 110px; }
+        #content .tixTitle .pull-right { float: none; margin-bottom: 12px; }
+        #content .search.well { max-width: 100%; }
+        #loginBody { padding: 32px 16px; }
+        #loginBody #loginBox { padding: 28px 22px; }
+    }
+    @include refinements.theme;
+    @include ticket-forms.theme;
+    @include record-lists.theme;
+    @include account-forms.theme;
+    @include mobile-tables.theme;
+    @media (max-width: 760px) {
+        // Explicit paired colours prevent native customer hover rules leaving pale text.
+        body.sd-nav-ready #nav > li > a:is(:hover, :focus-visible, :active) {
+            background: var(--sd-primary, #FFC107);
+            color: var(--sd-primary-text, #2D2E2D);
+        }
+    }
+    @media (max-width: 1024px) {
+        // A caption must become a normal full-width block with the mobile table.
+        .sd-records-scroll > table.sd-record-list > caption,
+        .sd-records-scroll > #ticketTable.sd-record-list > caption {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            margin: 0 0 12px;
+            padding: 10px 12px;
+            white-space: normal;
+            overflow-wrap: normal;
+            text-align: start;
+        }
+    }
+}

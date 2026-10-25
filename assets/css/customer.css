@@ -1,0 +1,1772 @@
+/*! Copyright (C) 2026 Soup Digital and contributors. SPDX-License-Identifier: GPL-2.0-or-later */
+html.sd-theme.sd-customer {
+  color-scheme: light;
+  background: var(--sd-background, #F2F2F2);
+  -webkit-text-size-adjust: 100%;
+}
+html.sd-theme.sd-customer *, html.sd-theme.sd-customer *::before, html.sd-theme.sd-customer *::after {
+  box-sizing: border-box;
+}
+html.sd-theme.sd-customer *, html.sd-theme.sd-customer *::before, html.sd-theme.sd-customer *::after {
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+html.sd-theme.sd-customer body {
+  margin: 0;
+  background: var(--sd-background, #F2F2F2);
+  color: var(--sd-text, #2D2E2D);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 0;
+  -webkit-font-smoothing: antialiased;
+}
+html.sd-theme.sd-customer a, html.sd-theme.sd-customer .link {
+  color: var(--sd-text, #2D2E2D);
+  text-decoration-color: var(--sd-muted, #808080);
+  text-underline-offset: 3px;
+}
+html.sd-theme.sd-customer a:hover, html.sd-theme.sd-customer .link:hover {
+  color: var(--sd-text, #2D2E2D);
+  text-decoration: underline;
+}
+html.sd-theme.sd-customer button, html.sd-theme.sd-customer input, html.sd-theme.sd-customer select, html.sd-theme.sd-customer textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+html.sd-theme.sd-customer [class^=icon-], html.sd-theme.sd-customer [class*=" icon-"] {
+  font-family: "FontAwesome";
+  font-weight: normal;
+  font-style: normal;
+}
+html.sd-theme.sd-customer .sd-ui-icon {
+  display: inline-block;
+  flex: 0 0 auto;
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vertical-align: middle;
+}
+html.sd-theme.sd-customer :where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 3px solid var(--sd-text, #2D2E2D);
+  outline-offset: 3px;
+  box-shadow: none;
+}
+html.sd-theme.sd-customer h1, html.sd-theme.sd-customer h2, html.sd-theme.sd-customer h3, html.sd-theme.sd-customer h4 {
+  color: var(--sd-text, #2D2E2D);
+  font-weight: 650;
+  line-height: 1.25;
+  letter-spacing: -0.035em;
+}
+html.sd-theme.sd-customer h1 {
+  font-size: clamp(1.65rem, 3vw, 2.45rem);
+  margin: 0 0 16px;
+}
+html.sd-theme.sd-customer h2 {
+  font-size: clamp(1.25rem, 2vw, 1.6rem);
+  margin: 20px 0 16px;
+}
+html.sd-theme.sd-customer h3 {
+  font-size: 1.1rem;
+}
+html.sd-theme.sd-customer p {
+  margin-top: 0;
+}
+html.sd-theme.sd-customer hr {
+  border: 0;
+  border-top: 1px solid var(--sd-border, #e5e5e5);
+  margin: 24px 0;
+}
+html.sd-theme.sd-customer #container {
+  width: calc(100% - 64px);
+  min-width: 0;
+  margin: 28px auto;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+html.sd-theme.sd-customer #header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  height: auto;
+  min-height: 88px;
+  padding: 18px 28px;
+  border: 0;
+  border-radius: 12px 12px 0 0;
+  background: var(--sd-surface, #FAF9F6);
+  box-shadow: none;
+}
+html.sd-theme.sd-customer #header #logo {
+  order: -1;
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  float: none;
+  width: auto;
+  height: auto;
+  max-width: min(300px, 60vw);
+  padding: 0;
+  line-height: 1;
+  text-decoration: none;
+}
+html.sd-theme.sd-customer #header #logo img {
+  max-width: 100%;
+  max-height: 48px;
+  height: auto;
+}
+html.sd-theme.sd-customer #header #logo .valign-helper {
+  display: none;
+}
+html.sd-theme.sd-customer #header p, html.sd-theme.sd-customer #header #info {
+  width: auto;
+  max-width: none;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--sd-secondary, #707070);
+  text-align: right;
+  font-size: 12px;
+  line-height: 2;
+}
+html.sd-theme.sd-customer #header p a, html.sd-theme.sd-customer #header #info a {
+  margin-inline: 5px;
+  font-weight: 600;
+  color: var(--sd-text, #2D2E2D);
+}
+html.sd-theme.sd-customer #header p strong, html.sd-theme.sd-customer #header #info strong {
+  color: var(--sd-text, #2D2E2D);
+}
+html.sd-theme.sd-customer.sd-wordmark #header #logo, html.sd-theme.sd-customer.sd-wordmark #loginBox #logo a {
+  position: relative;
+  color: var(--sd-text, #2D2E2D);
+}
+html.sd-theme.sd-customer.sd-wordmark #header #logo img, html.sd-theme.sd-customer.sd-wordmark #loginBox #logo a img {
+  display: none;
+}
+html.sd-theme.sd-customer.sd-wordmark #header #logo::after, html.sd-theme.sd-customer.sd-wordmark #loginBox #logo a::after {
+  content: var(--sd-brand-name, "Helpdesk");
+  display: block;
+  color: var(--sd-text, #2D2E2D);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 29px;
+  font-weight: 800;
+  letter-spacing: -1.7px;
+  line-height: 1.25;
+  border-bottom: 4px solid var(--sd-primary, #FFC107);
+  padding-bottom: 3px;
+  white-space: nowrap;
+}
+html.sd-theme.sd-customer #content {
+  background: var(--sd-surface, #FAF9F6);
+  border: 1px solid var(--sd-border, #e5e5e5);
+  border-radius: 12px;
+  box-shadow: none;
+  position: relative;
+  min-width: 0;
+  min-height: 420px;
+  height: auto;
+  margin: 24px 0;
+  padding: clamp(20px, 3vw, 40px);
+  overflow-wrap: anywhere;
+}
+html.sd-theme.sd-customer input:not([type]),
+html.sd-theme.sd-customer input:is([type=text], [type=email], [type=password], [type=search],
+[type=url], [type=tel], [type=number], [type=date], [type=datetime-local]),
+html.sd-theme.sd-customer select, html.sd-theme.sd-customer textarea {
+  max-width: 100%;
+  min-height: 42px;
+  padding: 9px 12px;
+  border: 1px solid var(--sd-border, #e5e5e5);
+  border-radius: 7px;
+  background-color: var(--sd-surface, #FAF9F6);
+  color: var(--sd-text, #2D2E2D);
+  line-height: 1.45;
+  box-shadow: none;
+}
+html.sd-theme.sd-customer input:not([type]):focus,
+html.sd-theme.sd-customer input:is([type=text], [type=email], [type=password], [type=search],
+[type=url], [type=tel], [type=number], [type=date], [type=datetime-local]):focus,
+html.sd-theme.sd-customer select:focus, html.sd-theme.sd-customer textarea:focus {
+  border-color: var(--sd-text, #2D2E2D);
+}
+html.sd-theme.sd-customer input:not([type]):disabled,
+html.sd-theme.sd-customer input:is([type=text], [type=email], [type=password], [type=search],
+[type=url], [type=tel], [type=number], [type=date], [type=datetime-local]):disabled,
+html.sd-theme.sd-customer select:disabled, html.sd-theme.sd-customer textarea:disabled {
+  background: var(--sd-background, #F2F2F2);
+  color: var(--sd-secondary, #707070);
+  cursor: not-allowed;
+}
+html.sd-theme.sd-customer input[type=checkbox], html.sd-theme.sd-customer input[type=radio] {
+  accent-color: var(--sd-text, #2D2E2D);
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+}
+html.sd-theme.sd-customer textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+html.sd-theme.sd-customer label {
+  line-height: 1.5;
+}
+html.sd-theme.sd-customer input::placeholder, html.sd-theme.sd-customer textarea::placeholder {
+  color: var(--sd-secondary, #707070);
+  opacity: 1;
+}
+html.sd-theme.sd-customer .button, html.sd-theme.sd-customer a.button, html.sd-theme.sd-customer .action-button, html.sd-theme.sd-customer input.btn,
+html.sd-theme.sd-customer input[type=submit], html.sd-theme.sd-customer input[type=reset], html.sd-theme.sd-customer input[type=button], html.sd-theme.sd-customer button[type=submit],
+html.sd-theme.sd-customer button[type=reset], html.sd-theme.sd-customer .sd-nav-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 40px;
+  height: auto;
+  max-width: 100%;
+  padding: 9px 16px;
+  border: 1px solid var(--sd-border, #e5e5e5);
+  border-radius: 7px;
+  background: var(--sd-surface, #FAF9F6);
+  color: var(--sd-text, #2D2E2D);
+  font: 600 13px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  text-decoration: none;
+  text-shadow: none;
+  box-shadow: none;
+  cursor: pointer;
+  vertical-align: middle;
+}
+html.sd-theme.sd-customer .button:hover, html.sd-theme.sd-customer a.button:hover, html.sd-theme.sd-customer .action-button:hover, html.sd-theme.sd-customer input.btn:hover,
+html.sd-theme.sd-customer input[type=submit]:hover, html.sd-theme.sd-customer input[type=reset]:hover, html.sd-theme.sd-customer input[type=button]:hover, html.sd-theme.sd-customer button[type=submit]:hover,
+html.sd-theme.sd-customer button[type=reset]:hover, html.sd-theme.sd-customer .sd-nav-toggle:hover {
+  background: var(--sd-background, #F2F2F2);
+  color: var(--sd-text, #2D2E2D);
+  text-decoration: none;
+}
+html.sd-theme.sd-customer .button:disabled, html.sd-theme.sd-customer .button.disabled, html.sd-theme.sd-customer a.button:disabled, html.sd-theme.sd-customer a.button.disabled, html.sd-theme.sd-customer .action-button:disabled, html.sd-theme.sd-customer .action-button.disabled, html.sd-theme.sd-customer input.btn:disabled, html.sd-theme.sd-customer input.btn.disabled,
+html.sd-theme.sd-customer input[type=submit]:disabled,
+html.sd-theme.sd-customer input[type=submit].disabled, html.sd-theme.sd-customer input[type=reset]:disabled, html.sd-theme.sd-customer input[type=reset].disabled, html.sd-theme.sd-customer input[type=button]:disabled, html.sd-theme.sd-customer input[type=button].disabled, html.sd-theme.sd-customer button[type=submit]:disabled, html.sd-theme.sd-customer button[type=submit].disabled,
+html.sd-theme.sd-customer button[type=reset]:disabled,
+html.sd-theme.sd-customer button[type=reset].disabled, html.sd-theme.sd-customer .sd-nav-toggle:disabled, html.sd-theme.sd-customer .sd-nav-toggle.disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+html.sd-theme.sd-customer .green.button, html.sd-theme.sd-customer .blue.button, html.sd-theme.sd-customer input[type=submit], html.sd-theme.sd-customer input.btn,
+html.sd-theme.sd-customer button[type=submit], html.sd-theme.sd-customer .button.primary, html.sd-theme.sd-customer .button.submit {
+  background: var(--sd-primary, #FFC107);
+  border-color: var(--sd-primary, #FFC107);
+  color: var(--sd-primary-text, #2D2E2D);
+  text-shadow: none;
+  box-shadow: none;
+}
+html.sd-theme.sd-customer .green.button:hover, html.sd-theme.sd-customer .blue.button:hover, html.sd-theme.sd-customer input[type=submit]:hover, html.sd-theme.sd-customer input.btn:hover,
+html.sd-theme.sd-customer button[type=submit]:hover, html.sd-theme.sd-customer .button.primary:hover, html.sd-theme.sd-customer .button.submit:hover {
+  background: var(--sd-primary-hover, #FFE69B);
+  border-color: var(--sd-primary, #FFC107);
+  color: var(--sd-primary-text, #2D2E2D);
+}
+html.sd-theme.sd-customer .button.danger, html.sd-theme.sd-customer .action-button.danger, html.sd-theme.sd-customer button.danger,
+html.sd-theme.sd-customer input[type=submit].danger, html.sd-theme.sd-customer .button.red {
+  color: #9e2a2b !important;
+  background: #fff5f4;
+  border-color: #e2b6b4 !important;
+  opacity: 1;
+  filter: none;
+}
+html.sd-theme.sd-customer .button.danger:hover, html.sd-theme.sd-customer .action-button.danger:hover, html.sd-theme.sd-customer button.danger:hover,
+html.sd-theme.sd-customer input[type=submit].danger:hover, html.sd-theme.sd-customer .button.red:hover {
+  background: #fbe5e3;
+}
+html.sd-theme.sd-customer .button.danger:disabled, html.sd-theme.sd-customer .button.danger.disabled, html.sd-theme.sd-customer .action-button.danger:disabled, html.sd-theme.sd-customer .action-button.danger.disabled, html.sd-theme.sd-customer button.danger:disabled, html.sd-theme.sd-customer button.danger.disabled,
+html.sd-theme.sd-customer input[type=submit].danger:disabled,
+html.sd-theme.sd-customer input[type=submit].danger.disabled, html.sd-theme.sd-customer .button.red:disabled, html.sd-theme.sd-customer .button.red.disabled {
+  opacity: 0.55;
+}
+html.sd-theme.sd-customer .button.link {
+  background: transparent;
+  border-color: var(--sd-border, #e5e5e5);
+}
+html.sd-theme.sd-customer .action-button {
+  padding: 8px 12px;
+}
+html.sd-theme.sd-customer :is(a, button, span, i)[class^=icon-],
+html.sd-theme.sd-customer :is(a, button, span, i)[class*=" icon-"],
+html.sd-theme.sd-customer [class^=icon-]::before, html.sd-theme.sd-customer [class*=" icon-"]::before {
+  font-family: "FontAwesome";
+  font-style: normal;
+  font-weight: normal;
+}
+html.sd-theme.sd-customer .faded, html.sd-theme.sd-customer .faded-more, html.sd-theme.sd-customer .faded strong {
+  color: var(--sd-secondary, #707070);
+}
+html.sd-theme.sd-customer .error, html.sd-theme.sd-customer .error a {
+  color: #9e2a2b;
+}
+html.sd-theme.sd-customer #msg_notice, html.sd-theme.sd-customer #msg_info, html.sd-theme.sd-customer #msg_warning, html.sd-theme.sd-customer #msg_error,
+html.sd-theme.sd-customer #notice_bar, html.sd-theme.sd-customer #warning_bar, html.sd-theme.sd-customer #error_bar,
+html.sd-theme.sd-customer .notice_bar, html.sd-theme.sd-customer .warning_bar, html.sd-theme.sd-customer .error_bar,
+html.sd-theme.sd-customer .info-banner, html.sd-theme.sd-customer .success-banner, html.sd-theme.sd-customer .warning-banner, html.sd-theme.sd-customer .error-banner, html.sd-theme.sd-customer .notice-banner {
+  height: auto;
+  min-height: 44px;
+  padding: 12px 16px;
+  margin-bottom: 18px;
+  border-radius: 8px;
+  background-image: none;
+  line-height: 1.6;
+}
+html.sd-theme.sd-customer #msg_notice, html.sd-theme.sd-customer #notice_bar, html.sd-theme.sd-customer .notice_bar, html.sd-theme.sd-customer .success-banner, html.sd-theme.sd-customer .notice-banner {
+  background-color: #eef6ef;
+  border: 1px solid #c6ddcb;
+  color: #28633c;
+}
+html.sd-theme.sd-customer #msg_info, html.sd-theme.sd-customer .info-banner {
+  background-color: var(--sd-subtle, #F9F9F9);
+  border: 1px solid var(--sd-border, #e5e5e5);
+  color: var(--sd-text, #2D2E2D);
+}
+html.sd-theme.sd-customer #msg_warning, html.sd-theme.sd-customer #warning_bar, html.sd-theme.sd-customer .warning_bar, html.sd-theme.sd-customer .warning-banner {
+  background-color: #fff7dc;
+  border: 1px solid var(--sd-primary-hover, #FFE69B);
+  color: var(--sd-text, #2D2E2D);
+}
+html.sd-theme.sd-customer #msg_error, html.sd-theme.sd-customer #error_bar, html.sd-theme.sd-customer .error_bar, html.sd-theme.sd-customer .error-banner {
+  background-color: #fff1f0;
+  border: 1px solid #e2b6b4;
+  color: #9e2a2b;
+}
+html.sd-theme.sd-customer .sd-table-scroll {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  border: 1px solid var(--sd-border, #e5e5e5);
+  border-radius: 9px;
+  margin: 18px 0;
+  scrollbar-color: #b5b5b5 var(--sd-background, #F2F2F2);
+  -webkit-overflow-scrolling: touch;
+}
+html.sd-theme.sd-customer .sd-table-scroll > table {
+  margin: 0;
+  border: 0;
+}
+html.sd-theme.sd-customer .sd-table-hint {
+  margin: 16px 0 -8px;
+  color: var(--sd-secondary, #707070);
+  font-size: 12px;
+  line-height: 1.5;
+}
+html.sd-theme.sd-customer .sd-table-hint[hidden] {
+  display: none;
+}
+html.sd-theme.sd-customer table:is(.list, .queue, .dashboard-stats), html.sd-theme.sd-customer #ticketTable {
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+  border: 1px solid var(--sd-border, #e5e5e5);
+  background: var(--sd-surface, #FAF9F6);
+  font-size: 13px;
+}
+html.sd-theme.sd-customer table:is(.list, .queue, .dashboard-stats) th, html.sd-theme.sd-customer table:is(.list, .queue, .dashboard-stats) td, html.sd-theme.sd-customer #ticketTable th, html.sd-theme.sd-customer #ticketTable td {
+  padding: 14px 16px;
+  border: 0;
+  border-bottom: 1px solid var(--sd-border, #e5e5e5);
+  text-align: start;
+  vertical-align: middle;
+}
+html.sd-theme.sd-customer table:is(.list, .queue, .dashboard-stats) th, html.sd-theme.sd-customer #ticketTable th {
+  height: auto;
+  background: var(--sd-subtle, #F9F9F9);
+  color: var(--sd-secondary, #707070);
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+html.sd-theme.sd-customer table:is(.list, .queue, .dashboard-stats) th a, html.sd-theme.sd-customer #ticketTable th a {
+  color: var(--sd-secondary, #707070);
+}
+html.sd-theme.sd-customer table:is(.list, .queue, .dashboard-stats) tbody tr:nth-child(odd) td, html.sd-theme.sd-customer #ticketTable tbody tr:nth-child(odd) td {
+  background: var(--sd-surface, #FAF9F6);
+}
+html.sd-theme.sd-customer table:is(.list, .queue, .dashboard-stats) tbody tr:nth-child(even) td, html.sd-theme.sd-customer #ticketTable tbody tr:nth-child(even) td {
+  background: var(--sd-subtle, #F9F9F9);
+}
+html.sd-theme.sd-customer table:is(.list, .queue, .dashboard-stats) tbody tr:hover td, html.sd-theme.sd-customer #ticketTable tbody tr:hover td {
+  background: var(--sd-primary-hover, #FFE69B);
+}
+html.sd-theme.sd-customer table:is(.list, .queue, .dashboard-stats) tr:last-child td, html.sd-theme.sd-customer #ticketTable tr:last-child td {
+  border-bottom: 0;
+}
+html.sd-theme.sd-customer table:is(.list, .queue, .dashboard-stats) tfoot td, html.sd-theme.sd-customer #ticketTable tfoot td {
+  background: var(--sd-subtle, #F9F9F9);
+}
+html.sd-theme.sd-customer .sd-table-scroll > table:is(.list, .queue), html.sd-theme.sd-customer .sd-table-scroll > #ticketTable {
+  min-width: 660px;
+}
+html.sd-theme.sd-customer .sd-table-scroll > table.dashboard-stats {
+  min-width: 760px;
+}
+html.sd-theme.sd-customer ul.tabs, html.sd-theme.sd-customer .tabs {
+  height: auto;
+  min-height: 42px;
+  padding: 0;
+  margin: 20px 0;
+  border: 0;
+  border-bottom: 1px solid var(--sd-border, #e5e5e5);
+  background: transparent;
+  box-shadow: none;
+  white-space: normal;
+}
+html.sd-theme.sd-customer ul.tabs li, html.sd-theme.sd-customer .tabs li {
+  display: inline-block;
+  float: none;
+  height: auto;
+  min-width: 0;
+  padding: 0;
+  bottom: auto;
+  line-height: 1.5;
+  margin: 0 12px 0 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+html.sd-theme.sd-customer ul.tabs li a, html.sd-theme.sd-customer .tabs li a {
+  display: inline-block;
+  padding: 11px 8px;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  background: transparent;
+  box-shadow: none;
+  color: var(--sd-secondary, #707070);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+}
+html.sd-theme.sd-customer ul.tabs li.active a, html.sd-theme.sd-customer ul.tabs li a.active, html.sd-theme.sd-customer .tabs li.active a, html.sd-theme.sd-customer .tabs li a.active {
+  border-bottom-color: var(--sd-primary, #FFC107);
+  color: var(--sd-text, #2D2E2D);
+}
+html.sd-theme.sd-customer ul.tabs li.active, html.sd-theme.sd-customer ul.tabs li:not(.active), html.sd-theme.sd-customer .tabs li.active, html.sd-theme.sd-customer .tabs li:not(.active) {
+  bottom: auto;
+  background: transparent;
+  box-shadow: none;
+}
+html.sd-theme.sd-customer .tab_content {
+  border-color: var(--sd-border, #e5e5e5);
+  background: transparent;
+}
+html.sd-theme.sd-customer .thread-entry {
+  margin-bottom: 22px;
+}
+html.sd-theme.sd-customer .thread-entry .header {
+  padding: 12px 16px;
+  background: var(--sd-subtle, #F9F9F9);
+  border-color: var(--sd-border, #e5e5e5);
+  border-radius: 9px 9px 0 0;
+  color: var(--sd-text, #2D2E2D);
+}
+html.sd-theme.sd-customer .thread-entry .thread-body {
+  padding: 20px;
+  border-color: var(--sd-border, #e5e5e5);
+  border-radius: 0 0 9px 9px;
+  background: var(--sd-surface, #FAF9F6);
+  color: var(--sd-text, #2D2E2D);
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+  overflow-x: auto;
+}
+html.sd-theme.sd-customer .thread-entry .thread-body img {
+  max-width: 100%;
+  height: auto;
+}
+html.sd-theme.sd-customer .thread-entry .thread-body pre {
+  max-width: 100%;
+  overflow: auto;
+  white-space: pre-wrap;
+}
+html.sd-theme.sd-customer .thread-entry .thread-body a {
+  text-decoration: underline;
+}
+html.sd-theme.sd-customer .thread-entry.note .header {
+  background: #fff6d7;
+}
+html.sd-theme.sd-customer .redactor_box, html.sd-theme.sd-customer .redactor-box {
+  max-width: 100%;
+  border-color: var(--sd-border, #e5e5e5);
+  border-radius: 8px;
+}
+html.sd-theme.sd-customer .redactor_toolbar {
+  background: var(--sd-subtle, #F9F9F9);
+  border-color: var(--sd-border, #e5e5e5);
+}
+html.sd-theme.sd-customer .redactor_editor {
+  min-height: 170px;
+  color: var(--sd-text, #2D2E2D);
+}
+html.sd-theme.sd-customer .select2-container {
+  max-width: 100%;
+}
+html.sd-theme.sd-customer .select2-container--default .select2-selection--single {
+  min-height: 42px;
+  padding: 5px 3px;
+  border-radius: 7px;
+  border-color: var(--sd-border, #e5e5e5);
+}
+html.sd-theme.sd-customer #footer {
+  padding: 18px 16px 12px;
+  border: 0;
+  background: transparent;
+  color: var(--sd-secondary, #707070);
+  font-size: 12px;
+  line-height: 1.7;
+  text-align: center;
+}
+html.sd-theme.sd-customer #footer p {
+  margin: 0 0 8px;
+}
+html.sd-theme.sd-customer .sd-nav-toggle {
+  display: none;
+}
+html.sd-theme.sd-customer .sd-subnav-toggle {
+  display: none;
+}
+html.sd-theme.sd-customer .sd-skip-link {
+  position: fixed;
+  top: -100px;
+  left: 16px;
+  z-index: 10000;
+  padding: 12px 18px;
+  background: var(--sd-primary, #FFC107);
+  color: var(--sd-text, #2D2E2D);
+  border-radius: 6px;
+  font-weight: 700;
+}
+html.sd-theme.sd-customer .sd-skip-link:focus {
+  top: 12px;
+}
+html.sd-theme.sd-customer #popup, html.sd-theme.sd-customer #alert, html.sd-theme.sd-customer .dialog {
+  max-width: calc(100vw - 32px);
+  border-radius: 12px;
+  border-color: var(--sd-border, #e5e5e5);
+  box-shadow: none;
+  background-color: var(--sd-surface, #FAF9F6);
+}
+@media (max-width: 760px) {
+  html.sd-theme.sd-customer #container {
+    width: calc(100% - 24px);
+    margin: 12px auto;
+  }
+  html.sd-theme.sd-customer #header {
+    padding: 18px;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  html.sd-theme.sd-customer #header #logo {
+    flex-shrink: 1;
+    min-width: 0;
+    max-width: calc(100% - 112px);
+  }
+  html.sd-theme.sd-customer #header #info, html.sd-theme.sd-customer #header > .pull-right {
+    order: 2;
+    width: 100%;
+    float: none;
+  }
+  html.sd-theme.sd-customer #header p, html.sd-theme.sd-customer #header #info {
+    text-align: start;
+    font-size: 11px;
+  }
+  html.sd-theme.sd-customer #content {
+    margin: 14px 0;
+    padding: 20px 16px;
+    min-height: 300px;
+  }
+  html.sd-theme.sd-customer h1 {
+    margin-bottom: 12px;
+  }
+  html.sd-theme.sd-customer input:not([type]), html.sd-theme.sd-customer input:is([type=text], [type=email], [type=password], [type=search]),
+  html.sd-theme.sd-customer select, html.sd-theme.sd-customer textarea {
+    font-size: 16px;
+  }
+  html.sd-theme.sd-customer table.sd-form-table {
+    display: block;
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+  html.sd-theme.sd-customer table.sd-form-table > tbody, html.sd-theme.sd-customer table.sd-form-table > tbody > tr {
+    display: block;
+    width: 100%;
+  }
+  html.sd-theme.sd-customer table.sd-form-table > tbody > tr > :is(td, th) {
+    display: block;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100%;
+    padding: 7px 0;
+    text-align: start;
+  }
+  html.sd-theme.sd-customer table.sd-form-table input:not([type]), html.sd-theme.sd-customer table.sd-form-table input:is([type=text], [type=email], [type=password], [type=url]),
+  html.sd-theme.sd-customer table.sd-form-table select, html.sd-theme.sd-customer table.sd-form-table textarea {
+    width: 100%;
+  }
+  html.sd-theme.sd-customer .sd-nav-ready .sd-nav-toggle {
+    display: inline-flex;
+    margin-inline-start: auto;
+  }
+  html.sd-theme.sd-customer.sd-wordmark #header #logo::after {
+    font-size: 25px;
+  }
+  html.sd-theme.sd-customer .thread-entry .thread-body {
+    padding: 14px;
+  }
+  html.sd-theme.sd-customer .thread-entry .header {
+    padding: 10px 12px;
+  }
+  html.sd-theme.sd-customer .thread-entry.avatar {
+    margin-inline-start: 0;
+  }
+  html.sd-theme.sd-customer .thread-entry.avatar > .avatar {
+    display: none;
+  }
+  html.sd-theme.sd-customer #popup, html.sd-theme.sd-customer #alert {
+    left: 12px !important;
+    right: 12px !important;
+    top: 40px !important;
+    width: auto !important;
+    max-width: none;
+    max-height: calc(100dvh - 64px);
+    overflow: auto;
+  }
+  html.sd-theme.sd-customer #popup .body, html.sd-theme.sd-customer #alert .body {
+    max-width: 100%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html.sd-theme.sd-customer *, html.sd-theme.sd-customer *::before, html.sd-theme.sd-customer *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
+html.sd-theme.sd-customer #container {
+  max-width: 1180px;
+}
+html.sd-theme.sd-customer #nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  height: auto;
+  min-height: 64px;
+  margin: 0;
+  padding: 12px 24px;
+  border: 0;
+  border-top: 1px solid var(--sd-border, #e5e5e5);
+  border-radius: 0 0 12px 12px;
+  background: var(--sd-surface, #FAF9F6);
+  box-shadow: none;
+  white-space: normal;
+}
+html.sd-theme.sd-customer #nav li {
+  display: block;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+html.sd-theme.sd-customer #nav li a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  height: auto;
+  margin: 0;
+  padding: 9px 15px;
+  border: 0;
+  border-radius: 7px;
+  background-image: none;
+  color: var(--sd-secondary, #707070);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.5;
+  text-decoration: none;
+}
+html.sd-theme.sd-customer #nav li a:hover {
+  background-color: var(--sd-background, #F2F2F2);
+  color: var(--sd-text, #2D2E2D);
+}
+html.sd-theme.sd-customer #nav li a.active {
+  background-color: var(--sd-primary-hover, #FFE69B);
+  color: var(--sd-text, #2D2E2D);
+}
+html.sd-theme.sd-customer #nav li a.new {
+  background: var(--sd-primary, #FFC107);
+  border-color: var(--sd-primary, #FFC107);
+  color: var(--sd-primary-text, #2D2E2D);
+  text-shadow: none;
+  box-shadow: none;
+}
+html.sd-theme.sd-customer #nav li a.new:hover {
+  background: var(--sd-primary-hover, #FFE69B);
+  border-color: var(--sd-primary, #FFC107);
+  color: var(--sd-primary-text, #2D2E2D);
+}
+html.sd-theme.sd-customer #landing_page {
+  display: flow-root;
+}
+html.sd-theme.sd-customer #landing_page h1 {
+  max-width: 700px;
+  margin-bottom: 20px;
+}
+html.sd-theme.sd-customer #landing_page .main-content {
+  width: auto;
+  max-width: 700px;
+  float: none;
+}
+html.sd-theme.sd-customer #landing_page .sidebar {
+  width: auto;
+  float: none;
+}
+html.sd-theme.sd-customer #landing_page p {
+  max-width: 72ch;
+  color: var(--sd-secondary, #707070);
+}
+html.sd-theme.sd-customer #landing_page #new_ticket, html.sd-theme.sd-customer #landing_page #check_status {
+  background: var(--sd-surface, #FAF9F6);
+  border: 1px solid var(--sd-border, #e5e5e5);
+  border-radius: 12px;
+  box-shadow: none;
+  position: relative;
+  width: calc(50% - 12px);
+  float: left;
+  margin: 28px 0 0;
+  padding: 26px;
+  background-image: none;
+  border-top: 4px solid var(--sd-primary, #FFC107);
+  min-height: 210px;
+}
+html.sd-theme.sd-customer #landing_page #new_ticket h3, html.sd-theme.sd-customer #landing_page #check_status h3 {
+  margin: 0 0 12px;
+  font-size: 1.3rem;
+}
+html.sd-theme.sd-customer #landing_page #new_ticket p, html.sd-theme.sd-customer #landing_page #check_status p {
+  min-height: 48px;
+}
+html.sd-theme.sd-customer #landing_page #new_ticket .button, html.sd-theme.sd-customer #landing_page #check_status .button {
+  margin-top: 12px;
+}
+html.sd-theme.sd-customer #landing_page #check_status {
+  margin-inline-start: 24px;
+  border-top-color: var(--sd-text, #2D2E2D);
+}
+html.sd-theme.sd-customer #landing_page:has(> .sidebar) {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(270px, 0.55fr);
+  gap: 40px;
+}
+html.sd-theme.sd-customer #landing_page:has(> .sidebar) > .main-content {
+  min-width: 0;
+  grid-column: 1;
+  grid-row: 1;
+}
+html.sd-theme.sd-customer #landing_page:has(> .sidebar) > .sidebar {
+  margin: 0;
+  grid-column: 2;
+  grid-row: 1;
+}
+html.sd-theme.sd-customer #landing_page:has(> .sidebar) > .sidebar #new_ticket, html.sd-theme.sd-customer #landing_page:has(> .sidebar) > .sidebar #check_status {
+  width: 100%;
+  float: none;
+  margin: 0 0 20px;
+}
+html.sd-theme.sd-customer #landing_page:has(> .sidebar) > :not(.sidebar):not(.main-content) {
+  grid-column: 1/-1;
+}
+html.sd-theme.sd-customer #landing_page:has(> .sidebar) > .clear {
+  display: none;
+}
+html.sd-theme.sd-customer #landing_page:has(> .sidebar) .front-page-button {
+  padding: 22px;
+  background: var(--sd-subtle, #F9F9F9);
+  border: 1px solid var(--sd-border, #e5e5e5);
+  border-radius: 10px;
+}
+html.sd-theme.sd-customer #landing_page:has(> .sidebar) .front-page-button p {
+  margin-bottom: 12px;
+}
+html.sd-theme.sd-customer #landing_page:has(> .sidebar) .front-page-button p:last-child {
+  margin-bottom: 0;
+}
+html.sd-theme.sd-customer #landing_page:has(> .sidebar) .front-page-button .button {
+  width: 100%;
+  max-width: none;
+}
+html.sd-theme.sd-customer #landing_page:has(> .sidebar) .sidebar .content section {
+  margin-top: 24px;
+}
+html.sd-theme.sd-customer #landing_page:has(> .sidebar) .sidebar .content .header {
+  margin-bottom: 12px;
+  font-weight: 650;
+}
+html.sd-theme.sd-customer #landing_page:has(> .sidebar) .sidebar .content section > div:not(.header) {
+  margin-bottom: 12px;
+}
+html.sd-theme.sd-customer #landing_page:has(> .sidebar) .sidebar .content {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: transparent;
+}
+html.sd-theme.sd-customer #landing_page .search-form {
+  margin-bottom: 28px;
+}
+html.sd-theme.sd-customer #landing_page .search-form form {
+  display: flex;
+  gap: 8px;
+}
+html.sd-theme.sd-customer #landing_page .search-form input {
+  width: 100%;
+  min-width: 0;
+}
+html.sd-theme.sd-customer #landing_page .search-form button {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+html.sd-theme.sd-customer #landing_page .main-content > .thread-body {
+  border: 0;
+  padding: 0;
+  background: transparent;
+}
+html.sd-theme.sd-customer #content > .sidebar {
+  width: 260px;
+  max-width: 100%;
+}
+html.sd-theme.sd-customer #content > .main-content {
+  width: calc(100% - 300px);
+  max-width: 100%;
+}
+html.sd-theme.sd-customer #ticketForm, html.sd-theme.sd-customer #reply, html.sd-theme.sd-customer #clientLogin, html.sd-theme.sd-customer #clientAccess, html.sd-theme.sd-customer #clientCreate, html.sd-theme.sd-customer #clientProfile {
+  max-width: 100%;
+}
+html.sd-theme.sd-customer #ticketForm > table, html.sd-theme.sd-customer #reply > table, html.sd-theme.sd-customer #clientLogin > table, html.sd-theme.sd-customer #clientAccess > table, html.sd-theme.sd-customer #clientCreate > table, html.sd-theme.sd-customer #clientProfile > table {
+  width: 100%;
+  max-width: 100%;
+}
+html.sd-theme.sd-customer #ticketForm td, html.sd-theme.sd-customer #reply td, html.sd-theme.sd-customer #clientLogin td, html.sd-theme.sd-customer #clientAccess td, html.sd-theme.sd-customer #clientCreate td, html.sd-theme.sd-customer #clientProfile td {
+  padding: 10px 12px 10px 0;
+  vertical-align: top;
+}
+html.sd-theme.sd-customer #ticketForm .form-header, html.sd-theme.sd-customer #reply .form-header, html.sd-theme.sd-customer #clientLogin .form-header, html.sd-theme.sd-customer #clientAccess .form-header, html.sd-theme.sd-customer #clientCreate .form-header, html.sd-theme.sd-customer #clientProfile .form-header {
+  padding: 12px 0;
+  font-size: 1.05rem;
+  color: var(--sd-text, #2D2E2D);
+}
+html.sd-theme.sd-customer #ticketForm input[type=submit], html.sd-theme.sd-customer #ticketForm input[type=reset], html.sd-theme.sd-customer #reply input[type=submit], html.sd-theme.sd-customer #reply input[type=reset], html.sd-theme.sd-customer #clientLogin input[type=submit], html.sd-theme.sd-customer #clientLogin input[type=reset], html.sd-theme.sd-customer #clientAccess input[type=submit], html.sd-theme.sd-customer #clientAccess input[type=reset], html.sd-theme.sd-customer #clientCreate input[type=submit], html.sd-theme.sd-customer #clientCreate input[type=reset], html.sd-theme.sd-customer #clientProfile input[type=submit], html.sd-theme.sd-customer #clientProfile input[type=reset] {
+  margin: 4px 6px 4px 0;
+}
+html.sd-theme.sd-customer #ticketForm select#topicId {
+  width: min(100%, 480px);
+}
+html.sd-theme.sd-customer #ticketForm input[type=text], html.sd-theme.sd-customer #ticketForm input[type=email] {
+  width: min(100%, 520px);
+}
+html.sd-theme.sd-customer #reply {
+  border-top: 1px solid var(--sd-border, #e5e5e5);
+  margin-top: 28px;
+  padding-top: 24px;
+}
+html.sd-theme.sd-customer #reply textarea {
+  width: 100%;
+}
+html.sd-theme.sd-customer #ticketInfo {
+  width: 100%;
+  table-layout: fixed;
+}
+html.sd-theme.sd-customer #ticketInfo > tbody > tr > td {
+  width: 50%;
+  vertical-align: top;
+}
+html.sd-theme.sd-customer .infoTable, html.sd-theme.sd-customer .custom-data {
+  width: 100%;
+  border-collapse: collapse;
+}
+html.sd-theme.sd-customer .infoTable td, html.sd-theme.sd-customer .custom-data td {
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--sd-border, #e5e5e5);
+}
+html.sd-theme.sd-customer .infoTable .headline, html.sd-theme.sd-customer .custom-data .headline {
+  background: var(--sd-subtle, #F9F9F9);
+  font-weight: 650;
+}
+html.sd-theme.sd-customer .search.well, html.sd-theme.sd-customer #kb-search {
+  padding: 18px;
+  border: 1px solid var(--sd-border, #e5e5e5);
+  border-radius: 9px;
+  background: var(--sd-subtle, #F9F9F9);
+  box-shadow: none;
+  margin-bottom: 24px;
+}
+html.sd-theme.sd-customer #ticketSearchForm {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+html.sd-theme.sd-customer #ticketSearchForm .pull-right {
+  float: none;
+  margin-inline-start: auto;
+}
+html.sd-theme.sd-customer #kb-search {
+  float: none;
+  width: 100%;
+}
+html.sd-theme.sd-customer #kb-search div {
+  max-width: 100%;
+}
+html.sd-theme.sd-customer #kb-search #query, html.sd-theme.sd-customer #kb-search #cid {
+  float: none;
+  max-width: 100%;
+}
+html.sd-theme.sd-customer #kb, html.sd-theme.sd-customer #faq ol {
+  padding: 0;
+}
+html.sd-theme.sd-customer #kb > li, html.sd-theme.sd-customer #faq ol li {
+  list-style: none;
+  margin: 0 0 12px;
+  padding: 20px;
+  border: 1px solid var(--sd-border, #e5e5e5);
+  border-radius: 9px;
+  background: var(--sd-surface, #FAF9F6);
+}
+html.sd-theme.sd-customer .featured-category {
+  width: 100%;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--sd-border, #e5e5e5);
+}
+html.sd-theme.sd-customer .faq-content {
+  max-width: 78ch;
+  line-height: 1.8;
+}
+html.sd-theme.sd-customer .faq-content img {
+  max-width: 100%;
+  height: auto;
+}
+html.sd-theme.sd-customer .states {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+html.sd-theme.sd-customer .states .state {
+  padding: 5px 10px;
+  border-radius: 6px;
+}
+html.sd-theme.sd-customer .states .state.active {
+  background: var(--sd-primary-hover, #FFE69B);
+  color: var(--sd-text, #2D2E2D);
+}
+html.sd-theme.sd-customer #pagination {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin: 24px 0;
+  padding: 0;
+}
+html.sd-theme.sd-customer #pagination li {
+  float: none;
+  list-style: none;
+  border-radius: 6px;
+}
+html.sd-theme.sd-customer #pagination li a {
+  padding: 7px 12px;
+  border-radius: 6px;
+  border-color: var(--sd-border, #e5e5e5);
+}
+html.sd-theme.sd-customer #pagination .active {
+  padding: 7px 12px;
+  background: var(--sd-primary-hover, #FFE69B);
+  color: var(--sd-text, #2D2E2D);
+  border: 1px solid var(--sd-primary, #FFC107);
+}
+html.sd-theme.sd-customer #clientLogin > .sd-login-columns {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+html.sd-theme.sd-customer .sd-login-columns > div {
+  display: block !important;
+  width: auto !important;
+  padding: 12px 0 !important;
+}
+html.sd-theme.sd-customer #clientLogin #username, html.sd-theme.sd-customer #clientLogin #passwd {
+  width: 100%;
+  margin-bottom: 12px;
+}
+@media (max-width: 760px) {
+  html.sd-theme.sd-customer #nav {
+    padding: 12px;
+    gap: 5px;
+  }
+  html.sd-theme.sd-customer #nav li {
+    flex: 1 1 auto;
+  }
+  html.sd-theme.sd-customer #nav li a {
+    display: flex;
+    justify-content: center;
+    padding: 10px 12px;
+  }
+  html.sd-theme.sd-customer .sd-nav-ready:not(.sd-nav-open) #nav {
+    display: none;
+  }
+  html.sd-theme.sd-customer #landing_page:has(> .sidebar) {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  html.sd-theme.sd-customer #landing_page:has(> .sidebar) > .main-content {
+    order: 0;
+  }
+  html.sd-theme.sd-customer #landing_page:has(> .sidebar) > .sidebar {
+    order: 1;
+  }
+  html.sd-theme.sd-customer #landing_page:has(> .sidebar) > :not(.main-content):not(.sidebar) {
+    order: 2;
+  }
+  html.sd-theme.sd-customer #landing_page #new_ticket, html.sd-theme.sd-customer #landing_page #check_status {
+    float: none;
+    width: 100%;
+    margin: 20px 0 0;
+    min-height: 0;
+    padding: 22px;
+  }
+  html.sd-theme.sd-customer #landing_page .main-content {
+    margin-bottom: 24px;
+  }
+  html.sd-theme.sd-customer #landing_page:has(> .sidebar) > .main-content {
+    margin-bottom: 0;
+  }
+  html.sd-theme.sd-customer #content > .main-content, html.sd-theme.sd-customer #content > .sidebar {
+    width: 100%;
+    float: none;
+  }
+  html.sd-theme.sd-customer #ticketInfo, html.sd-theme.sd-customer #ticketInfo > tbody, html.sd-theme.sd-customer #ticketInfo > tbody > tr,
+  html.sd-theme.sd-customer #ticketInfo > tbody > tr > td {
+    display: block;
+    width: 100%;
+  }
+  html.sd-theme.sd-customer #ticketSearchForm {
+    display: block;
+  }
+  html.sd-theme.sd-customer #ticketSearchForm .pull-right {
+    margin: 12px 0 0;
+  }
+  html.sd-theme.sd-customer #ticketSearchForm input[type=text], html.sd-theme.sd-customer #ticketSearchForm select {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+  html.sd-theme.sd-customer #clientLogin > .sd-login-columns {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+  }
+  html.sd-theme.sd-customer #content > .pull-right.states {
+    float: none;
+    margin-bottom: 16px;
+  }
+}
+html.sd-theme.sd-customer #nav {
+  z-index: 30;
+}
+html.sd-theme.sd-customer #nav > li {
+  min-width: 0;
+}
+html.sd-theme.sd-customer #nav > li > a {
+  justify-content: center;
+  padding-inline: 18px;
+}
+html.sd-theme.sd-customer #nav > li > ul {
+  visibility: visible;
+  opacity: 1;
+  transition: none;
+}
+html.sd-theme.sd-customer #overlay {
+  z-index: 2900;
+}
+html.sd-theme.sd-customer .dialog, html.sd-theme.sd-customer #popup, html.sd-theme.sd-customer #alert {
+  z-index: 3000;
+}
+html.sd-theme.sd-customer #loading, html.sd-theme.sd-customer #upgrading {
+  z-index: 3100;
+}
+html.sd-theme.sd-customer .dialog {
+  max-height: calc(100dvh - 64px);
+  padding: 24px;
+  overflow-y: auto;
+}
+html.sd-theme.sd-customer .dialog :is(h2, h3) {
+  color: var(--sd-text, #2D2E2D);
+}
+html.sd-theme.sd-customer .action-button {
+  align-items: center;
+  gap: 8px;
+}
+html.sd-theme.sd-customer .action-button > i, html.sd-theme.sd-customer .action-button > span, html.sd-theme.sd-customer .action-button > a {
+  float: none;
+  align-self: center;
+}
+html.sd-theme.sd-customer .action-button > i.icon-caret-down {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  order: 10;
+  flex: 0 0 16px;
+  width: 16px;
+  min-height: 16px;
+  height: 16px;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+html.sd-theme.sd-customer .action-button > i.icon-caret-down::before {
+  line-height: 1;
+}
+html.sd-theme.sd-customer .redactor-box:not(.redactor-box-fullscreen) {
+  width: 100% !important;
+  max-width: 100%;
+  min-width: 0;
+  border: 1px solid var(--sd-border, #e5e5e5);
+  border-radius: 8px;
+  margin: 10px 0;
+  background: var(--sd-surface, #FAF9F6);
+}
+html.sd-theme.sd-customer .redactor-in:not(.redactor-source) {
+  width: 100% !important;
+  max-width: none !important;
+  min-height: 220px;
+  margin: 0 !important;
+  padding: 16px !important;
+  text-align: start;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  border-right: 0;
+}
+html.sd-theme.sd-customer .redactor-in:not(.redactor-source) > p:first-child {
+  margin-top: 0;
+}
+html.sd-theme.sd-customer .redactor-placeholder::before {
+  inset-inline-start: 16px;
+  inset-inline-end: 16px;
+  top: 16px;
+  white-space: normal;
+  pointer-events: none;
+}
+html.sd-theme.sd-customer .redactor-box .redactor-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 100%;
+  padding: 5px !important;
+  border-bottom: 1px solid var(--sd-border, #e5e5e5);
+  background: var(--sd-subtle, #F9F9F9);
+}
+html.sd-theme.sd-customer .redactor-box .redactor-toolbar > li {
+  margin: 0;
+}
+html.sd-theme.sd-customer .selected-signature {
+  padding: 12px 16px;
+  border-top: 1px solid var(--sd-border, #e5e5e5);
+}
+html.sd-theme.sd-customer .selected-signature .inner {
+  max-width: none;
+  margin: 0;
+}
+html.sd-theme.sd-customer .sd-sizing-row {
+  display: table-row !important;
+  height: 0 !important;
+}
+html.sd-theme.sd-customer .sd-sizing-row > td {
+  height: 0 !important;
+  padding: 0 !important;
+  border: 0;
+}
+html.sd-theme.sd-customer #nav > .sd-drawer-heading, html.sd-theme.sd-customer .sd-menu-backdrop {
+  display: none;
+}
+@media (max-width: 760px) {
+  html.sd-theme.sd-customer body.sd-nav-open {
+    overflow: hidden;
+  }
+  html.sd-theme.sd-customer body.sd-nav-ready #nav {
+    display: block !important;
+    position: fixed;
+    inset-block: 0;
+    inset-inline: auto 0;
+    width: min(340px, 100vw - 40px);
+    max-width: none;
+    height: 100dvh;
+    min-height: 0;
+    margin: 0;
+    padding: 16px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    border: 0;
+    border-radius: 0;
+    background: var(--sd-navigation, #2D2E2D);
+    z-index: 1200;
+    visibility: hidden;
+    transform: translateX(105%);
+    pointer-events: none;
+  }
+  html.sd-theme.sd-customer body.sd-nav-open #nav {
+    visibility: visible;
+    transform: none;
+    pointer-events: auto;
+  }
+  html.sd-theme.sd-customer body.sd-nav-ready #nav > li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    width: 100%;
+    min-width: 0;
+    margin: 0 0 7px;
+    padding: 0;
+    border: 0;
+    border-radius: 6px;
+    background: transparent;
+  }
+  html.sd-theme.sd-customer body.sd-nav-ready #nav > li > a {
+    display: flex;
+    flex: 1 1 0;
+    justify-content: flex-start;
+    min-height: 46px;
+    margin: 0;
+    padding: 12px;
+    background-image: none;
+    color: var(--sd-navigation-text, #FAF9F6);
+    text-align: start;
+    line-height: 1.5;
+  }
+  html.sd-theme.sd-customer body.sd-nav-ready #nav > li.active > a, html.sd-theme.sd-customer body.sd-nav-ready #nav > li > a.active, html.sd-theme.sd-customer body.sd-nav-ready #nav > li > a.new {
+    background: var(--sd-primary, #FFC107);
+    color: var(--sd-primary-text, #2D2E2D);
+  }
+  html.sd-theme.sd-customer body.sd-nav-ready #nav > li > ul {
+    position: static;
+    width: 100%;
+    flex-basis: 100%;
+    min-width: 0;
+    max-width: none;
+    margin: 6px 0 0;
+    padding: 6px;
+    visibility: visible;
+    opacity: 1;
+  }
+  html.sd-theme.sd-customer body.sd-nav-ready #nav > li > .sd-subnav-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 42px;
+    width: 42px;
+    margin: 0;
+    padding: 0;
+    color: var(--sd-navigation-text, #FAF9F6);
+    background: transparent;
+    border: 1px solid #5d5d5d;
+    border-radius: 6px;
+  }
+  html.sd-theme.sd-customer body.sd-nav-ready #nav > .sd-drawer-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    color: var(--sd-navigation-text, #FAF9F6);
+    font-size: 16px;
+    font-weight: 600;
+  }
+  html.sd-theme.sd-customer body.sd-nav-ready #nav > .sd-drawer-heading .sd-drawer-close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    border: 1px solid #5d5d5d;
+    border-radius: 6px;
+    background: transparent;
+    color: var(--sd-navigation-text, #FAF9F6);
+    cursor: pointer;
+  }
+  html.sd-theme.sd-customer body.sd-nav-open > .sd-menu-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100dvh;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1190;
+  }
+  html.sd-theme.sd-customer table.sd-form-table {
+    table-layout: auto;
+  }
+  html.sd-theme.sd-customer table.sd-form-table > tbody, html.sd-theme.sd-customer table.sd-form-table > tbody > tr, html.sd-theme.sd-customer table.sd-form-table > thead, html.sd-theme.sd-customer table.sd-form-table > thead > tr,
+  html.sd-theme.sd-customer table.sd-form-table > tbody > tr > :is(th, td), html.sd-theme.sd-customer table.sd-form-table > thead > tr > :is(th, td) {
+    height: auto !important;
+    min-height: 0;
+  }
+  html.sd-theme.sd-customer table.sd-form-table > thead, html.sd-theme.sd-customer table.sd-form-table > thead > tr {
+    display: block;
+    width: 100%;
+  }
+  html.sd-theme.sd-customer table.sd-form-table > thead > tr > :is(th, td) {
+    display: block;
+    width: 100% !important;
+    min-width: 0 !important;
+    padding: 10px 0;
+  }
+  html.sd-theme.sd-customer table.sd-form-table .sd-sizing-row {
+    display: none !important;
+  }
+  html.sd-theme.sd-customer table.sd-form-table > tbody.hidden, html.sd-theme.sd-customer table.sd-form-table > thead.hidden,
+  html.sd-theme.sd-customer table.sd-form-table > tbody > tr.hidden, html.sd-theme.sd-customer table.sd-form-table > thead > tr.hidden,
+  html.sd-theme.sd-customer table.sd-form-table > tbody > tr > :is(th, td).hidden {
+    display: none !important;
+  }
+  html.sd-theme.sd-customer .dialog table.sd-form-table :is(input:not([type=checkbox]):not([type=radio]), select, textarea) {
+    max-width: 100%;
+  }
+  html.sd-theme.sd-customer .dialog .row, html.sd-theme.sd-customer .dialog .row > [class^=span] {
+    display: block;
+    width: 100%;
+    margin: 0;
+  }
+  html.sd-theme.sd-customer .redactor-in:not(.redactor-source) {
+    min-height: 180px;
+    font-size: 16px;
+  }
+}
+html.sd-theme.sd-customer .sd-list-sort-toggle, html.sd-theme.sd-customer .sd-record-expander {
+  display: none;
+}
+@media (max-width: 1024px) {
+  html.sd-theme.sd-customer .sd-list-sort-toggle {
+    display: inline-flex;
+    margin: 12px 0 0;
+  }
+  html.sd-theme.sd-customer .sd-list-sort-toggle[aria-expanded=true] {
+    background: var(--sd-primary-hover, #FFE69B);
+  }
+  html.sd-theme.sd-customer .sd-records-scroll {
+    overflow: visible;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+  }
+  html.sd-theme.sd-customer .sd-records-scroll > table.sd-record-list, html.sd-theme.sd-customer .sd-records-scroll > #ticketTable.sd-record-list {
+    display: block;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    border: 0;
+    background: transparent;
+    table-layout: auto;
+  }
+  html.sd-theme.sd-customer .sd-records-scroll > table.sd-record-list.hidden, html.sd-theme.sd-customer .sd-records-scroll > #ticketTable.sd-record-list.hidden {
+    display: none;
+  }
+  html.sd-theme.sd-customer .sd-records-scroll > table.sd-record-list[hidden], html.sd-theme.sd-customer .sd-records-scroll > #ticketTable.sd-record-list[hidden] {
+    display: none !important;
+  }
+  html.sd-theme.sd-customer .sd-records-scroll > table.sd-record-list > tbody.hidden, html.sd-theme.sd-customer .sd-records-scroll > #ticketTable.sd-record-list > tbody.hidden {
+    display: none;
+  }
+  html.sd-theme.sd-customer .sd-records-scroll > table.sd-record-list > tbody[hidden], html.sd-theme.sd-customer .sd-records-scroll > #ticketTable.sd-record-list > tbody[hidden] {
+    display: none !important;
+  }
+  html.sd-theme.sd-customer .sd-records-scroll > table.sd-record-list > colgroup, html.sd-theme.sd-customer .sd-records-scroll > #ticketTable.sd-record-list > colgroup {
+    display: none;
+  }
+  html.sd-theme.sd-customer .sd-records-scroll > table.sd-record-list > thead, html.sd-theme.sd-customer .sd-records-scroll > table.sd-record-list > tbody > tr.sd-record-head, html.sd-theme.sd-customer .sd-records-scroll > #ticketTable.sd-record-list > thead, html.sd-theme.sd-customer .sd-records-scroll > #ticketTable.sd-record-list > tbody > tr.sd-record-head {
+    display: none;
+  }
+  html.sd-theme.sd-customer .sd-records-scroll > table.sd-record-list.sd-list-sort-open > thead, html.sd-theme.sd-customer .sd-records-scroll > #ticketTable.sd-record-list.sd-list-sort-open > thead {
+    display: block;
+    margin-bottom: 12px;
+  }
+  html.sd-theme.sd-customer .sd-records-scroll > table.sd-record-list.sd-list-sort-open > thead > tr, html.sd-theme.sd-customer .sd-records-scroll > table.sd-record-list.sd-list-sort-open > tbody > tr.sd-record-head, html.sd-theme.sd-customer .sd-records-scroll > #ticketTable.sd-record-list.sd-list-sort-open > thead > tr, html.sd-theme.sd-customer .sd-records-scroll > #ticketTable.sd-record-list.sd-list-sort-open > tbody > tr.sd-record-head {
+    display: flex;
+    grid-column: 1/-1;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  html.sd-theme.sd-customer .sd-records-scroll > table.sd-record-list.sd-list-sort-open > thead > tr > th, html.sd-theme.sd-customer .sd-records-scroll > table.sd-record-list.sd-list-sort-open > tbody > tr.sd-record-head > th, html.sd-theme.sd-customer .sd-records-scroll > #ticketTable.sd-record-list.sd-list-sort-open > thead > tr > th, html.sd-theme.sd-customer .sd-records-scroll > #ticketTable.sd-record-list.sd-list-sort-open > tbody > tr.sd-record-head > th {
+    display: block;
+    width: auto !important;
+    padding: 8px 10px;
+    border: 1px solid var(--sd-border, #e5e5e5);
+    border-radius: 6px;
+    white-space: normal;
+  }
+  html.sd-theme.sd-customer .sd-records-scroll > table.sd-record-list.sd-list-sort-open > thead > tr > th.sd-record-empty-heading, html.sd-theme.sd-customer .sd-records-scroll > table.sd-record-list.sd-list-sort-open > tbody > tr.sd-record-head > th.sd-record-empty-heading, html.sd-theme.sd-customer .sd-records-scroll > #ticketTable.sd-record-list.sd-list-sort-open > thead > tr > th.sd-record-empty-heading, html.sd-theme.sd-customer .sd-records-scroll > #ticketTable.sd-record-list.sd-list-sort-open > tbody > tr.sd-record-head > th.sd-record-empty-heading {
+    display: none;
+  }
+  html.sd-theme.sd-customer .sd-records-scroll > table.sd-record-list > tbody, html.sd-theme.sd-customer .sd-records-scroll > #ticketTable.sd-record-list > tbody {
+    display: grid;
+    gap: 12px;
+  }
+  html.sd-theme.sd-customer .sd-records-scroll > table.sd-record-list > tbody > tr.sd-record, html.sd-theme.sd-customer .sd-records-scroll > #ticketTable.sd-record-list > tbody > tr.sd-record {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px 16px;
+    padding: 16px;
+    border: 1px solid var(--sd-border, #e5e5e5);
+    border-radius: 9px;
+    background: var(--sd-surface, #FAF9F6);
+    height: auto !important;
+  }
+  html.sd-theme.sd-customer .sd-records-scroll > table.sd-record-list > tbody > tr.sd-record > :is(td, th), html.sd-theme.sd-customer .sd-records-scroll > #ticketTable.sd-record-list > tbody > tr.sd-record > :is(td, th) {
+    display: block;
+    order: 1;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: 100%;
+    height: auto !important;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    white-space: normal !important;
+    overflow-wrap: anywhere;
+    text-align: start;
+    line-height: 1.5;
+  }
+  html.sd-theme.sd-customer .sd-records-scroll > table.sd-record-list > tbody > tr.sd-record > :is(td, th)::before, html.sd-theme.sd-customer .sd-records-scroll > #ticketTable.sd-record-list > tbody > tr.sd-record > :is(td, th)::before {
+    display: block;
+    margin-bottom: 4px;
+    content: attr(data-sd-label);
+    color: var(--sd-secondary, #707070);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+  html.sd-theme.sd-customer .sd-records-scroll > table.sd-record-list > tbody > tr.sd-record > :is(td, th)[data-sd-label=""]::before, html.sd-theme.sd-customer .sd-records-scroll > #ticketTable.sd-record-list > tbody > tr.sd-record > :is(td, th)[data-sd-label=""]::before {
+    display: none;
+  }
+  html.sd-theme.sd-customer .sd-records-scroll > table.sd-record-list > tbody > tr.sd-record > :is(td, th) > div, html.sd-theme.sd-customer .sd-records-scroll > table.sd-record-list > tbody > tr.sd-record > :is(td, th) .truncate, html.sd-theme.sd-customer .sd-records-scroll > table.sd-record-list > tbody > tr.sd-record > :is(td, th) a, html.sd-theme.sd-customer .sd-records-scroll > #ticketTable.sd-record-list > tbody > tr.sd-record > :is(td, th) > div, html.sd-theme.sd-customer .sd-records-scroll > #ticketTable.sd-record-list > tbody > tr.sd-record > :is(td, th) .truncate, html.sd-theme.sd-customer .sd-records-scroll > #ticketTable.sd-record-list > tbody > tr.sd-record > :is(td, th) a {
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    height: auto;
+    white-space: normal !important;
+    overflow-wrap: anywhere;
+    text-overflow: clip;
+  }
+  html.sd-theme.sd-customer .sd-records-scroll > table.sd-record-list > tbody > tr.sd-record > :is(td, th).sd-record-title, html.sd-theme.sd-customer .sd-records-scroll > #ticketTable.sd-record-list > tbody > tr.sd-record > :is(td, th).sd-record-title {
+    grid-column: 1/-1;
+    order: -2;
+    font-size: 16px;
+    font-weight: 650;
+  }
+  html.sd-theme.sd-customer .sd-records-scroll > table.sd-record-list > tbody > tr.sd-record > :is(td, th).sd-record-title > a, html.sd-theme.sd-customer .sd-records-scroll > #ticketTable.sd-record-list > tbody > tr.sd-record > :is(td, th).sd-record-title > a {
+    font-size: inherit;
+  }
+  html.sd-theme.sd-customer .sd-records-scroll > table.sd-record-list > tbody > tr.sd-record > :is(td, th).sd-record-key, html.sd-theme.sd-customer .sd-records-scroll > #ticketTable.sd-record-list > tbody > tr.sd-record > :is(td, th).sd-record-key {
+    order: -1;
+  }
+  html.sd-theme.sd-customer .sd-records-scroll > table.sd-record-list > tbody > tr.sd-record > :is(td, th).sd-record-select, html.sd-theme.sd-customer .sd-records-scroll > #ticketTable.sd-record-list > tbody > tr.sd-record > :is(td, th).sd-record-select {
+    display: flex;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 36px !important;
+    height: 36px !important;
+    justify-content: center;
+    align-items: center;
+  }
+  html.sd-theme.sd-customer .sd-records-scroll > table.sd-record-list > tbody > tr.sd-record > :is(td, th).sd-record-select::before, html.sd-theme.sd-customer .sd-records-scroll > #ticketTable.sd-record-list > tbody > tr.sd-record > :is(td, th).sd-record-select::before {
+    display: none;
+  }
+  html.sd-theme.sd-customer .sd-records-scroll > table.sd-record-list > tbody > tr.sd-record > :is(td, th).sd-record-select input, html.sd-theme.sd-customer .sd-records-scroll > #ticketTable.sd-record-list > tbody > tr.sd-record > :is(td, th).sd-record-select input {
+    margin: 0;
+    width: 22px;
+    height: 22px;
+  }
+  html.sd-theme.sd-customer .sd-records-scroll > table.sd-record-list > tbody > tr.sd-record > :is(td, th).hidden, html.sd-theme.sd-customer .sd-records-scroll > #ticketTable.sd-record-list > tbody > tr.sd-record > :is(td, th).hidden {
+    display: none;
+  }
+  html.sd-theme.sd-customer .sd-records-scroll > table.sd-record-list > tbody > tr.sd-record > :is(td, th)[hidden], html.sd-theme.sd-customer .sd-records-scroll > #ticketTable.sd-record-list > tbody > tr.sd-record > :is(td, th)[hidden] {
+    display: none !important;
+  }
+  html.sd-theme.sd-customer .sd-records-scroll > table.sd-record-list > tbody > tr.sd-record.sd-record-compact, html.sd-theme.sd-customer .sd-records-scroll > #ticketTable.sd-record-list > tbody > tr.sd-record.sd-record-compact {
+    padding-bottom: 60px;
+  }
+  html.sd-theme.sd-customer .sd-records-scroll > table.sd-record-list > tbody > tr.sd-record.sd-record-compact:not(.sd-record-expanded) > :is(td, th).sd-record-details, html.sd-theme.sd-customer .sd-records-scroll > #ticketTable.sd-record-list > tbody > tr.sd-record.sd-record-compact:not(.sd-record-expanded) > :is(td, th).sd-record-details {
+    display: none !important;
+  }
+  html.sd-theme.sd-customer .sd-records-scroll > table.sd-record-list > tbody > tr.sd-record.sd-record-compact .sd-record-expander, html.sd-theme.sd-customer .sd-records-scroll > #ticketTable.sd-record-list > tbody > tr.sd-record.sd-record-compact .sd-record-expander {
+    position: absolute;
+    inset-inline-end: 12px;
+    bottom: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: auto;
+    min-height: 36px;
+    padding: 7px 10px;
+    margin: 0;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  html.sd-theme.sd-customer .sd-records-scroll > table.sd-record-list > tbody > tr.sd-record.sd-record-compact .sd-record-expander .sd-ui-icon, html.sd-theme.sd-customer .sd-records-scroll > #ticketTable.sd-record-list > tbody > tr.sd-record.sd-record-compact .sd-record-expander .sd-ui-icon {
+    width: 16px;
+    height: 16px;
+  }
+  html.sd-theme.sd-customer .sd-records-scroll > table.sd-record-list > tbody > tr.sd-record.sd-record-compact .sd-record-expander[aria-expanded=true] .sd-ui-icon, html.sd-theme.sd-customer .sd-records-scroll > #ticketTable.sd-record-list > tbody > tr.sd-record.sd-record-compact .sd-record-expander[aria-expanded=true] .sd-ui-icon {
+    transform: rotate(180deg);
+  }
+  html.sd-theme.sd-customer .sd-records-scroll > table.sd-record-list > tbody > tr.sd-record.sd-record-has-selection, html.sd-theme.sd-customer .sd-records-scroll > #ticketTable.sd-record-list > tbody > tr.sd-record.sd-record-has-selection {
+    padding-top: 48px;
+  }
+  html.sd-theme.sd-customer .sd-records-scroll > table.sd-record-list > tbody > tr.sd-record.sd-record-has-selection:has(> .sd-record-title), html.sd-theme.sd-customer .sd-records-scroll > #ticketTable.sd-record-list > tbody > tr.sd-record.sd-record-has-selection:has(> .sd-record-title) {
+    padding-top: 16px;
+  }
+  html.sd-theme.sd-customer .sd-records-scroll > table.sd-record-list > tbody > tr.sd-record.sd-record-has-selection:has(> .sd-record-title) > .sd-record-title, html.sd-theme.sd-customer .sd-records-scroll > #ticketTable.sd-record-list > tbody > tr.sd-record.sd-record-has-selection:has(> .sd-record-title) > .sd-record-title {
+    padding-inline-end: 38px;
+  }
+  html.sd-theme.sd-customer .sd-records-scroll > table.sd-record-list > tbody > tr.sd-record-message, html.sd-theme.sd-customer .sd-records-scroll > #ticketTable.sd-record-list > tbody > tr.sd-record-message {
+    display: block;
+  }
+  html.sd-theme.sd-customer .sd-records-scroll > table.sd-record-list > tbody > tr.sd-record-message > :is(td, th), html.sd-theme.sd-customer .sd-records-scroll > #ticketTable.sd-record-list > tbody > tr.sd-record-message > :is(td, th) {
+    display: block;
+    width: auto !important;
+    white-space: normal;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+  html.sd-theme.sd-customer .sd-records-scroll > table.sd-record-list > tbody > tr.hidden, html.sd-theme.sd-customer .sd-records-scroll > #ticketTable.sd-record-list > tbody > tr.hidden {
+    display: none;
+  }
+  html.sd-theme.sd-customer .sd-records-scroll > table.sd-record-list > tbody > tr[hidden], html.sd-theme.sd-customer .sd-records-scroll > #ticketTable.sd-record-list > tbody > tr[hidden] {
+    display: none !important;
+  }
+  html.sd-theme.sd-customer .sd-records-scroll > table.sd-record-list > tfoot, html.sd-theme.sd-customer .sd-records-scroll > #ticketTable.sd-record-list > tfoot {
+    display: block;
+    margin-top: 12px;
+  }
+  html.sd-theme.sd-customer .sd-records-scroll > table.sd-record-list > tfoot > tr, html.sd-theme.sd-customer .sd-records-scroll > table.sd-record-list > tfoot > tr > :is(td, th), html.sd-theme.sd-customer .sd-records-scroll > #ticketTable.sd-record-list > tfoot > tr, html.sd-theme.sd-customer .sd-records-scroll > #ticketTable.sd-record-list > tfoot > tr > :is(td, th) {
+    display: block;
+    width: auto !important;
+    height: auto;
+    white-space: normal;
+  }
+}
+@media (max-width: 1024px) and (min-width: 640px) {
+  html.sd-theme.sd-customer .sd-records-scroll > table.sd-record-list > tbody > tr.sd-record,
+  html.sd-theme.sd-customer .sd-records-scroll > #ticketTable.sd-record-list > tbody > tr.sd-record {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (max-width: 1024px) {
+  html.sd-theme.sd-customer form:is([action="profile.php"], [action$="/profile.php"]) {
+    min-width: 0;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+  html.sd-theme.sd-customer form:is([action="profile.php"], [action$="/profile.php"]) > .tab_content, html.sd-theme.sd-customer form:is([action="profile.php"], [action$="/profile.php"]) > #signature {
+    min-width: 0;
+    max-width: 100%;
+  }
+  html.sd-theme.sd-customer form:is([action="profile.php"], [action$="/profile.php"]) table:is(.two-column, .padded, .form_table, .sd-form-table):not(:is(.redactor-in, .redactor_editor, .redactor-editor, .thread-body) table) {
+    display: block;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    table-layout: auto;
+    border-collapse: collapse;
+  }
+  html.sd-theme.sd-customer form:is([action="profile.php"], [action$="/profile.php"]) table:is(.two-column, .padded, .form_table, .sd-form-table):not(:is(.redactor-in, .redactor_editor, .redactor-editor, .thread-body) table) > thead, html.sd-theme.sd-customer form:is([action="profile.php"], [action$="/profile.php"]) table:is(.two-column, .padded, .form_table, .sd-form-table):not(:is(.redactor-in, .redactor_editor, .redactor-editor, .thread-body) table) > tbody, html.sd-theme.sd-customer form:is([action="profile.php"], [action$="/profile.php"]) table:is(.two-column, .padded, .form_table, .sd-form-table):not(:is(.redactor-in, .redactor_editor, .redactor-editor, .thread-body) table) > tfoot,
+  html.sd-theme.sd-customer form:is([action="profile.php"], [action$="/profile.php"]) table:is(.two-column, .padded, .form_table, .sd-form-table):not(:is(.redactor-in, .redactor_editor, .redactor-editor, .thread-body) table) > thead > tr, html.sd-theme.sd-customer form:is([action="profile.php"], [action$="/profile.php"]) table:is(.two-column, .padded, .form_table, .sd-form-table):not(:is(.redactor-in, .redactor_editor, .redactor-editor, .thread-body) table) > tbody > tr, html.sd-theme.sd-customer form:is([action="profile.php"], [action$="/profile.php"]) table:is(.two-column, .padded, .form_table, .sd-form-table):not(:is(.redactor-in, .redactor_editor, .redactor-editor, .thread-body) table) > tfoot > tr {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    height: auto !important;
+  }
+  html.sd-theme.sd-customer form:is([action="profile.php"], [action$="/profile.php"]) table:is(.two-column, .padded, .form_table, .sd-form-table):not(:is(.redactor-in, .redactor_editor, .redactor-editor, .thread-body) table) > :is(thead, tbody, tfoot) > tr > :is(td, th) {
+    display: block;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100%;
+    height: auto !important;
+    padding: 8px 0;
+    white-space: normal;
+    text-align: start;
+    background: transparent;
+  }
+  html.sd-theme.sd-customer form:is([action="profile.php"], [action$="/profile.php"]) table:is(.two-column, .padded, .form_table, .sd-form-table):not(:is(.redactor-in, .redactor_editor, .redactor-editor, .thread-body) table) > :is(thead, tbody, tfoot) > tr > :is(td, th):first-child:not([colspan]) {
+    padding-bottom: 4px;
+  }
+  html.sd-theme.sd-customer form:is([action="profile.php"], [action$="/profile.php"]) table:is(.two-column, .padded, .form_table, .sd-form-table):not(:is(.redactor-in, .redactor_editor, .redactor-editor, .thread-body) table) > :is(thead, tbody, tfoot) > tr > th[colspan] {
+    margin-top: 12px;
+    padding: 12px 10px;
+    border-bottom: 1px solid var(--sd-border, #e5e5e5);
+    background: var(--sd-subtle, #F9F9F9);
+  }
+  html.sd-theme.sd-customer form:is([action="profile.php"], [action$="/profile.php"]) table:is(.two-column, .padded, .form_table, .sd-form-table):not(:is(.redactor-in, .redactor_editor, .redactor-editor, .thread-body) table) .hidden, html.sd-theme.sd-customer form:is([action="profile.php"], [action$="/profile.php"]) table:is(.two-column, .padded, .form_table, .sd-form-table):not(:is(.redactor-in, .redactor_editor, .redactor-editor, .thread-body) table) [hidden] {
+    display: none !important;
+  }
+  html.sd-theme.sd-customer form:is([action="profile.php"], [action$="/profile.php"]) input:is([type=text], [type=email], [type=tel], [type=password], [type=url], [type=number]),
+  html.sd-theme.sd-customer form:is([action="profile.php"], [action$="/profile.php"]) select, html.sd-theme.sd-customer form:is([action="profile.php"], [action$="/profile.php"]) textarea {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+  html.sd-theme.sd-customer form:is([action="profile.php"], [action$="/profile.php"]) input[name=phone_ext] {
+    width: min(100%, 8rem) !important;
+  }
+  html.sd-theme.sd-customer form:is([action="profile.php"], [action$="/profile.php"]) input[name=lastname] {
+    margin-top: 8px;
+  }
+  html.sd-theme.sd-customer form:is([action="profile.php"], [action$="/profile.php"]) .select2-container {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+  html.sd-theme.sd-customer form:is([action="profile.php"], [action$="/profile.php"]) .avatar.pull-left {
+    float: none !important;
+    height: auto !important;
+    max-width: 100%;
+    margin: 0 0 16px !important;
+  }
+  html.sd-theme.sd-customer form:is([action="profile.php"], [action$="/profile.php"]) .avatar.pull-left > img {
+    display: block;
+    max-width: 100%;
+  }
+  html.sd-theme.sd-customer form:is([action="profile.php"], [action$="/profile.php"]) > p:last-of-type {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+  html.sd-theme.sd-customer form:is([action="profile.php"], [action$="/profile.php"]) > p:last-of-type > :is(button, input) {
+    margin: 0;
+  }
+}
+@media (min-width: 1025px) {
+  html.sd-theme.sd-customer .sd-added-table-wrapper {
+    display: contents;
+  }
+}
+@media (max-width: 1024px) {
+  html.sd-theme.sd-customer .sd-layout-scroll {
+    overflow: visible;
+    border: 0;
+    border-radius: 0;
+  }
+  html.sd-theme.sd-customer table.sd-layout-table, html.sd-theme.sd-customer .sd-layout-scroll > table.sd-stack-table {
+    display: block;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    height: auto !important;
+    table-layout: auto;
+    overflow-wrap: anywhere;
+  }
+  html.sd-theme.sd-customer table.sd-layout-table > colgroup, html.sd-theme.sd-customer .sd-layout-scroll > table.sd-stack-table > colgroup {
+    display: none;
+  }
+  html.sd-theme.sd-customer table.sd-layout-table > thead, html.sd-theme.sd-customer table.sd-layout-table > tbody, html.sd-theme.sd-customer table.sd-layout-table > tfoot,
+  html.sd-theme.sd-customer table.sd-layout-table > :is(thead, tbody, tfoot) > tr, html.sd-theme.sd-customer .sd-layout-scroll > table.sd-stack-table > thead, html.sd-theme.sd-customer .sd-layout-scroll > table.sd-stack-table > tbody, html.sd-theme.sd-customer .sd-layout-scroll > table.sd-stack-table > tfoot,
+  html.sd-theme.sd-customer .sd-layout-scroll > table.sd-stack-table > :is(thead, tbody, tfoot) > tr {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    height: auto !important;
+  }
+  html.sd-theme.sd-customer table.sd-layout-table > :is(thead, tbody, tfoot) > tr > :is(th, td), html.sd-theme.sd-customer .sd-layout-scroll > table.sd-stack-table > :is(thead, tbody, tfoot) > tr > :is(th, td) {
+    display: block;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100%;
+    height: auto !important;
+    padding: 8px 10px;
+    white-space: normal !important;
+    text-align: start;
+    overflow-wrap: anywhere;
+  }
+  html.sd-theme.sd-customer table.sd-layout-table > :is(thead, tbody, tfoot) > tr > :is(th, td) > div, html.sd-theme.sd-customer .sd-layout-scroll > table.sd-stack-table > :is(thead, tbody, tfoot) > tr > :is(th, td) > div {
+    min-width: 0;
+    max-width: 100%;
+  }
+  html.sd-theme.sd-customer table.sd-layout-table > :is(thead, tbody, tfoot) > tr > th[colspan], html.sd-theme.sd-customer .sd-layout-scroll > table.sd-stack-table > :is(thead, tbody, tfoot) > tr > th[colspan] {
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+  html.sd-theme.sd-customer table.sd-layout-table input:not([type]),
+  html.sd-theme.sd-customer table.sd-layout-table input:is([type=text], [type=email], [type=password], [type=tel], [type=url], [type=number], [type=search]),
+  html.sd-theme.sd-customer table.sd-layout-table select, html.sd-theme.sd-customer table.sd-layout-table textarea, html.sd-theme.sd-customer table.sd-layout-table .select2-container, html.sd-theme.sd-customer .sd-layout-scroll > table.sd-stack-table input:not([type]),
+  html.sd-theme.sd-customer .sd-layout-scroll > table.sd-stack-table input:is([type=text], [type=email], [type=password], [type=tel], [type=url], [type=number], [type=search]),
+  html.sd-theme.sd-customer .sd-layout-scroll > table.sd-stack-table select, html.sd-theme.sd-customer .sd-layout-scroll > table.sd-stack-table textarea, html.sd-theme.sd-customer .sd-layout-scroll > table.sd-stack-table .select2-container {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+  html.sd-theme.sd-customer table.sd-layout-table .avatar.pull-left, html.sd-theme.sd-customer .sd-layout-scroll > table.sd-stack-table .avatar.pull-left {
+    float: none !important;
+    height: auto !important;
+    max-width: 100%;
+    margin: 0 0 16px !important;
+  }
+  html.sd-theme.sd-customer table.sd-layout-table .truncate, html.sd-theme.sd-customer .sd-layout-scroll > table.sd-stack-table .truncate {
+    max-width: 100% !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere;
+  }
+  html.sd-theme.sd-customer table.sd-layout-table .hidden, html.sd-theme.sd-customer .sd-layout-scroll > table.sd-stack-table .hidden {
+    display: none;
+  }
+  html.sd-theme.sd-customer table.sd-layout-table [hidden], html.sd-theme.sd-customer .sd-layout-scroll > table.sd-stack-table [hidden] {
+    display: none !important;
+  }
+  html.sd-theme.sd-customer table.sd-layout-table.hidden, html.sd-theme.sd-customer table.sd-stack-table.hidden {
+    display: none;
+  }
+  html.sd-theme.sd-customer table.sd-layout-table[hidden], html.sd-theme.sd-customer table.sd-stack-table[hidden] {
+    display: none !important;
+  }
+  html.sd-theme.sd-customer table.sd-layout-table .pull-right, html.sd-theme.sd-customer table.sd-stack-table .pull-right {
+    float: none;
+    margin-inline: 0 6px;
+  }
+  html.sd-theme.sd-customer #content :is(.sd-layout-table, .sd-stack-table) :is(td, th) > :is(button, .button) {
+    max-width: 100%;
+    white-space: normal;
+  }
+}
+@media (max-width: 760px) {
+  html.sd-theme.sd-customer body.sd-nav-ready #nav > li > a:is(:hover, :focus-visible, :active) {
+    background: var(--sd-primary, #FFC107);
+    color: var(--sd-primary-text, #2D2E2D);
+  }
+}
+@media (max-width: 1024px) {
+  html.sd-theme.sd-customer .sd-records-scroll > table.sd-record-list > caption,
+  html.sd-theme.sd-customer .sd-records-scroll > #ticketTable.sd-record-list > caption {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 0 12px;
+    padding: 10px 12px;
+    white-space: normal;
+    overflow-wrap: normal;
+    text-align: start;
+  }
+}

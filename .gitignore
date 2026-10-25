@@ -1,0 +1,6 @@
+node_modules/
+preview/legacy/*
+!preview/legacy/README.md
+DISABLED
+*.zip
+.DS_Store

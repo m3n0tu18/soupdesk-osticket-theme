@@ -1,0 +1,82 @@
+@use "variables" as *;
+
+@mixin theme {
+    @media (min-width: 1025px) {
+        // New wrappers around column-based settings tables have no desktop box.
+        .sd-added-table-wrapper { display: contents; }
+    }
+    @media (max-width: 1024px) {
+        .sd-layout-scroll {
+            overflow: visible;
+            border: 0;
+            border-radius: 0;
+        }
+        // These classes are assigned only to core form/detail/section tables.
+        // Ordinary records use the separate labelled-card layout instead.
+        table.sd-layout-table, .sd-layout-scroll > table.sd-stack-table {
+            display: block;
+            width: 100% !important;
+            min-width: 0 !important;
+            max-width: 100% !important;
+            height: auto !important;
+            table-layout: auto;
+            overflow-wrap: anywhere;
+
+            > colgroup { display: none; }
+            > thead, > tbody, > tfoot,
+            > :is(thead, tbody, tfoot) > tr {
+                display: block;
+                width: 100%;
+                min-width: 0;
+                height: auto !important;
+            }
+            > :is(thead, tbody, tfoot) > tr > :is(th, td) {
+                display: block;
+                width: 100% !important;
+                min-width: 0 !important;
+                max-width: 100%;
+                height: auto !important;
+                padding: 8px 10px;
+                white-space: normal !important;
+                text-align: start;
+                overflow-wrap: anywhere;
+                > div { min-width: 0; max-width: 100%; }
+            }
+            > :is(thead, tbody, tfoot) > tr > th[colspan] {
+                padding-top: 14px;
+                padding-bottom: 14px;
+            }
+            input:not([type]),
+            input:is([type="text"], [type="email"], [type="password"], [type="tel"], [type="url"], [type="number"], [type="search"]),
+            select, textarea, .select2-container {
+                width: 100% !important;
+                min-width: 0 !important;
+                max-width: 100% !important;
+            }
+            .avatar.pull-left {
+                float: none !important;
+                height: auto !important;
+                max-width: 100%;
+                margin: 0 0 16px !important;
+            }
+            .truncate {
+                max-width: 100% !important;
+                white-space: normal !important;
+                overflow-wrap: anywhere;
+            }
+            .hidden { display: none; }
+            [hidden] { display: none !important; }
+        }
+        table.sd-layout-table.hidden, table.sd-stack-table.hidden { display: none; }
+        table.sd-layout-table[hidden], table.sd-stack-table[hidden] { display: none !important; }
+        // Account, organisation and ticket detail header controls can share a cell.
+        table.sd-layout-table .pull-right, table.sd-stack-table .pull-right {
+            float: none;
+            margin-inline: 0 6px;
+        }
+        #content :is(.sd-layout-table, .sd-stack-table) :is(td, th) > :is(button, .button) {
+            max-width: 100%;
+            white-space: normal;
+        }
+    }
+}

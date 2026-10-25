@@ -1,0 +1,187 @@
+@use "variables" as *;
+
+// Annotated lists/reports become cards on small screens; desktop keeps native tables.
+@mixin theme {
+    .sd-list-sort-toggle, .sd-record-expander { display: none; }
+
+    @media (max-width: 1024px) {
+        .sd-list-sort-toggle {
+            display: inline-flex;
+            margin: 12px 0 0;
+            &[aria-expanded="true"] { background: $lightYellow; }
+        }
+
+        .sd-records-scroll {
+            overflow: visible;
+            border: 0;
+            border-radius: 0;
+            background: transparent;
+
+            > table.sd-record-list, > #ticketTable.sd-record-list {
+                display: block;
+                width: 100% !important;
+                min-width: 0 !important;
+                max-width: 100% !important;
+                border: 0;
+                background: transparent;
+                table-layout: auto;
+
+                &.hidden { display: none; }
+                &[hidden] { display: none !important; }
+                > tbody.hidden { display: none; }
+                > tbody[hidden] { display: none !important; }
+                > colgroup { display: none; }
+                > thead, > tbody > tr.sd-record-head { display: none; }
+                &.sd-list-sort-open {
+                    > thead { display: block; margin-bottom: 12px; }
+                    > thead > tr, > tbody > tr.sd-record-head {
+                        display: flex;
+                        grid-column: 1 / -1;
+                        flex-wrap: wrap;
+                        gap: 8px;
+                        > th {
+                            display: block;
+                            width: auto !important;
+                            padding: 8px 10px;
+                            border: 1px solid $mediumGrey;
+                            border-radius: 6px;
+                            white-space: normal;
+                            &.sd-record-empty-heading { display: none; }
+                        }
+                    }
+                }
+
+                > tbody {
+                    display: grid;
+                    gap: 12px;
+                    > tr.sd-record {
+                        position: relative;
+                        display: grid;
+                        grid-template-columns: repeat(2, minmax(0, 1fr));
+                        gap: 12px 16px;
+                        padding: 16px;
+                        border: 1px solid $mediumGrey;
+                        border-radius: 9px;
+                        background: $white;
+                        height: auto !important;
+
+                        > :is(td, th) {
+                            display: block;
+                            order: 1;
+                            width: auto !important;
+                            min-width: 0 !important;
+                            max-width: 100%;
+                            height: auto !important;
+                            margin: 0;
+                            padding: 0;
+                            border: 0;
+                            background-color: transparent;
+                            white-space: normal !important;
+                            overflow-wrap: anywhere;
+                            text-align: start;
+                            line-height: 1.5;
+
+                            &::before {
+                                display: block;
+                                margin-bottom: 4px;
+                                content: attr(data-sd-label);
+                                color: $darkGrey;
+                                font-size: 11px;
+                                font-weight: 600;
+                                letter-spacing: 0.02em;
+                            }
+                            &[data-sd-label=""]::before { display: none; }
+                            > div, .truncate, a {
+                                width: auto !important;
+                                min-width: 0 !important;
+                                max-width: 100% !important;
+                                height: auto;
+                                white-space: normal !important;
+                                overflow-wrap: anywhere;
+                                text-overflow: clip;
+                            }
+                            &.sd-record-title {
+                                grid-column: 1 / -1;
+                                order: -2;
+                                font-size: 16px;
+                                font-weight: 650;
+                                > a { font-size: inherit; }
+                            }
+                            &.sd-record-key { order: -1; }
+                            &.sd-record-select {
+                                display: flex;
+                                position: absolute;
+                                top: 10px;
+                                right: 10px;
+                                width: 36px !important;
+                                height: 36px !important;
+                                justify-content: center;
+                                align-items: center;
+                                &::before { display: none; }
+                                input { margin: 0; width: 22px; height: 22px; }
+                            }
+                            &.hidden { display: none; }
+                            &[hidden] { display: none !important; }
+                        }
+                        &.sd-record-compact {
+                            padding-bottom: 60px;
+                            &:not(.sd-record-expanded) > :is(td, th).sd-record-details { display: none !important; }
+                            .sd-record-expander {
+                                position: absolute;
+                                inset-inline-end: 12px;
+                                bottom: 10px;
+                                display: inline-flex;
+                                align-items: center;
+                                justify-content: center;
+                                gap: 6px;
+                                width: auto;
+                                min-height: 36px;
+                                padding: 7px 10px;
+                                margin: 0;
+                                font-size: 12px;
+                                font-weight: 600;
+                                .sd-ui-icon { width: 16px; height: 16px; }
+                                &[aria-expanded="true"] .sd-ui-icon { transform: rotate(180deg); }
+                            }
+                        }
+                        &.sd-record-has-selection {
+                            padding-top: 48px;
+                            &:has(> .sd-record-title) {
+                                padding-top: 16px;
+                                > .sd-record-title { padding-inline-end: 38px; }
+                            }
+                        }
+                    }
+                    > tr.sd-record-message {
+                        display: block;
+                        > :is(td, th) {
+                            display: block;
+                            width: auto !important;
+                            white-space: normal;
+                            max-width: 100%;
+                            overflow-wrap: anywhere;
+                        }
+                    }
+                    > tr.hidden { display: none; }
+                    > tr[hidden] { display: none !important; }
+                }
+                > tfoot {
+                    display: block;
+                    margin-top: 12px;
+                    > tr, > tr > :is(td, th) {
+                        display: block;
+                        width: auto !important;
+                        height: auto;
+                        white-space: normal;
+                    }
+                }
+            }
+        }
+        @media (min-width: 640px) {
+            .sd-records-scroll > table.sd-record-list > tbody > tr.sd-record,
+            .sd-records-scroll > #ticketTable.sd-record-list > tbody > tr.sd-record {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+    }
+}
